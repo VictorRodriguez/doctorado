@@ -1,0 +1,16 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2020.3 (lin64) Build 3173277 Wed Apr  7 05:07:21 MDT 2021
+| Date              : Tue Jun 22 21:49:20 2021
+| Host              : localhost.localdomain running 64-bit unknown
+| Command           : report_bus_skew -warn_on_violation -file alarm_cage_bus_skew_routed.rpt -pb alarm_cage_bus_skew_routed.pb -rpx alarm_cage_bus_skew_routed.rpx
+| Design            : alarm_cage
+| Device            : xcvc1802-viva1596
+| Speed File        : -3HP  ENGINEERING-SAMPLE 2.00 2021-03-24
+| Temperature Grade : E
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+No bus skew constraints
+

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.3 (64-bit)
+# SW Build 3173277 on Wed Apr  7 05:07:21 MDT 2021
+# IP Build 3174024 on Wed Apr  7 23:42:35 MDT 2021
+# Start of session at: Tue Jun 22 21:43:06 2021
+# Process ID: 27276
+# Current directory: /home/vmrod/vivado/alarm_cage/alarm_cage.runs/synth_1
+# Command line: vivado -log alarm_cage.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source alarm_cage.tcl
+# Log file: /home/vmrod/vivado/alarm_cage/alarm_cage.runs/synth_1/alarm_cage.vds
+# Journal file: /home/vmrod/vivado/alarm_cage/alarm_cage.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source alarm_cage.tcl -notrace
