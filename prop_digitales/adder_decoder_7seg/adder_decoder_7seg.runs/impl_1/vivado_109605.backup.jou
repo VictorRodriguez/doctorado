@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jun 26 20:17:37 2021
+# Process ID: 109605
+# Current directory: /home/vmrod/devel/vivado/adder_decoder_7seg/adder_decoder_7seg.runs/impl_1
+# Command line: vivado -log adder_decoder_7seg.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source adder_decoder_7seg.tcl -notrace
+# Log file: /home/vmrod/devel/vivado/adder_decoder_7seg/adder_decoder_7seg.runs/impl_1/adder_decoder_7seg.vdi
+# Journal file: /home/vmrod/devel/vivado/adder_decoder_7seg/adder_decoder_7seg.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source adder_decoder_7seg.tcl -notrace

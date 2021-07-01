@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jun 29 21:42:03 2021
+# Process ID: 16424
+# Current directory: /home/vmrod/devel/vivado/mux_2_1_size_4/mux_2_1_size_4.runs/synth_1
+# Command line: vivado -log mux_2_1_size_4.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mux_2_1_size_4.tcl
+# Log file: /home/vmrod/devel/vivado/mux_2_1_size_4/mux_2_1_size_4.runs/synth_1/mux_2_1_size_4.vds
+# Journal file: /home/vmrod/devel/vivado/mux_2_1_size_4/mux_2_1_size_4.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source mux_2_1_size_4.tcl -notrace
