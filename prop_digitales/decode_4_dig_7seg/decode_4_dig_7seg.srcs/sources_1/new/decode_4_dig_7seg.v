@@ -20,24 +20,30 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module decode_4_dig_7seg(
+module decode_4_dig_7seg # (parameter n = 2, parameter width = 18, parameter YY = 250_000)(
+
     input [3:0] A,
     input [3:0] B,
     input [3:0] C,
     input [3:0] D,
     input clk,
-    input seg_a,
-    input seg_b,
-    input seg_c,
-    input seg_d,
-    input seg_e,
-    input seg_f,
-    input seg_g,
+    input rst,
+    input enable,
+    output seg_a,
+    output seg_b,
+    output seg_c,
+    output seg_d,
+    output seg_e,
+    output seg_f,
+    output seg_g,
     output [3:0] SEL
     );
     
-    wire [4:0] wire_A,wire_B,wire_C,wire_D,wire_Y,wire_CNT;
+    wire [4:0] wire_A,wire_B,wire_C,wire_D,wire_Y;
+    wire [1:0]wire_CNT;
     
+    
+    Delayer_Counter # (.n(n), .width(width), .YY(YY)) Delayer_Counter_1 (.clk(clk),.rst(rst),.enable(~enable),.q(wire_CNT));
     
     
     mux_4_1_size_4 mux_4_1_size_4_0(.A(A),
@@ -59,8 +65,7 @@ module decode_4_dig_7seg(
          .f(seg_f),
          .g(seg_g));
 
-    decode_2_4_display decode_2_4_display_0(.a(wire_CNT[1]),.b(wire_CNT[0]),.Y(SEL));
+    decode_2_4_display decode_2_4_display_0(.a(wire_CNT[1]),.b(wire_CNT[0]),.Y(SEL));    
     
-
 
 endmodule

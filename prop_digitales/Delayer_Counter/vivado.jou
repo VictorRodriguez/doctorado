@@ -1,0 +1,74 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Sep 17 15:08:30 2018
+# Process ID: 8388
+# Current directory: C:/Cuauh17/my_designs/Vivado/Vivado_Tutorial
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5912
+# Log file: C:/Cuauh17/my_designs/Vivado/Vivado_Tutorial/vivado.log
+# Journal file: C:/Cuauh17/my_designs/Vivado/Vivado_Tutorial\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Cuauh17/my_designs/Vivado/contador_comparador/contador_comparador.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+launch_simulation
+source contador_comparador_TB.tcl
+run 1 us
+run 1 us
+launch_runs synth_1
+wait_on_run synth_1
+run 1 u
+run 1 us
+run 1 us
+synth_design -rtl -name rtl_1
+show_objects -name cuenta [get_nets -hierarchical -top_net_of_hierarchical_group "*" ]
+current_wave_config {Untitled 1}
+add_wave {{/contador_comparador_TB/UUT/cuenta}} 
+save_wave_config {C:/Cuauh17/my_designs/Vivado/contador_comparador/contador_comparador_TB_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Cuauh17/my_designs/Vivado/contador_comparador/contador_comparador_TB_behav.wcfg
+set_property xsim.view C:/Cuauh17/my_designs/Vivado/contador_comparador/contador_comparador_TB_behav.wcfg [get_filesets sim_1]
+run 1 us
+run 1 us
+save_wave_config {C:/Cuauh17/my_designs/Vivado/contador_comparador/contador_comparador_TB_behav.wcfg}
+close_sim
+close_project
+create_project Delayer_Counter C:/Cuauh17/my_designs/Vivado/Delayer_Counter -part xc7a35tcpg236-1
+file mkdir C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/sources_1/new
+set_property simulator_language Verilog [current_project]
+close [ open C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/sources_1/new/Delayer_Counter.v w ]
+add_files C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/sources_1/new/Delayer_Counter.v
+update_compile_order -fileset sources_1
+import_files -norecurse C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer.v
+update_compile_order -fileset sources_1
+close [ open C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/sources_1/new/counter_param.v w ]
+add_files C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/sources_1/new/counter_param.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+synth_design -rtl -name rtl_1
+file mkdir C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/constrs_1
+file mkdir C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/constrs_1/new
+close [ open C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/constrs_1/new/Delayer_Counter_UCF.xdc w ]
+add_files -fileset constrs_1 C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.srcs/constrs_1/new/Delayer_Counter_UCF.xdc
+launch_runs synth_1
+wait_on_run synth_1
+launch_runs impl_1
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+write_cfgmem  -format mcs -size 2 -interface SMAPx8 -loadbit {up 0x00000000 "C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.runs/impl_1/Delayer_Counter.bit" } -file "C:/Cuauh17/my_designs/Vivado/Vivado_Tutorial/Delayer_Counter_cfgmem.mcs"
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.runs/impl_1/Delayer_Counter.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Cuauh17/my_designs/Vivado/Delayer_Counter/Delayer_Counter.runs/impl_1/Delayer_Counter.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+refresh_design
+archive_project C:/Cuauh17/my_designs/Vivado/Delayer_Counter.xpr.zip -temp_dir C:/Cuauh17/my_designs/Vivado/Vivado_Tutorial/.Xil/Vivado-8388-Nuevo_Dia -force -include_local_ip_cache
