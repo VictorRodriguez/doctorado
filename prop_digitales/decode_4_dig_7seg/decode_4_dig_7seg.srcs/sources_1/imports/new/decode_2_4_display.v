@@ -26,15 +26,15 @@ module decode_2_4_display(
     output [3:0]Y
     );
 
-/*
+
     assign Y[0] = a|b;
     assign Y[1] = a|~b;
     assign Y[2]= ~a|b;
     assign Y[3] = ~a|~b;
-*/
+/*
     assign Y[0] = a|b;
     assign Y[2] = ~(~a&b);
     assign Y[1]= ~(a&~b);
     assign Y[3] = ~a|~b;
-    
+  */  
 endmodule
