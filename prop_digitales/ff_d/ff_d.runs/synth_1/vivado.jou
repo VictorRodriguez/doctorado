@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jul  6 22:03:30 2021
+# Process ID: 26645
+# Current directory: /home/vmrod/devel/vivado/ff_d/ff_d.runs/synth_1
+# Command line: vivado -log ff_d.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ff_d.tcl
+# Log file: /home/vmrod/devel/vivado/ff_d/ff_d.runs/synth_1/ff_d.vds
+# Journal file: /home/vmrod/devel/vivado/ff_d/ff_d.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source ff_d.tcl -notrace

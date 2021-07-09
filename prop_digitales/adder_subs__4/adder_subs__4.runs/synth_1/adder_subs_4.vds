@@ -1,0 +1,248 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Jul  4 21:48:52 2021
+# Process ID: 25552
+# Current directory: /home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/synth_1
+# Command line: vivado -log adder_subs_4.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source adder_subs_4.tcl
+# Log file: /home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/synth_1/adder_subs_4.vds
+# Journal file: /home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source adder_subs_4.tcl -notrace
+Command: synth_design -top adder_subs_4 -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 25583
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2597.676 ; gain = 0.000 ; free physical = 19692 ; free virtual = 39333
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'adder_subs_4' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/new/adder_subs_4.v:23]
+	Parameter n bound to: 2 - type: integer 
+	Parameter width bound to: 18 - type: integer 
+	Parameter YY bound to: 250000 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'adder_4' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/adder_4/adder_4.srcs/sources_1/new/adder_4.v:23]
+INFO: [Synth 8-6157] synthesizing module 'full_adder' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/new/full_adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'full_adder' (1#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/new/full_adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder_4' (2#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/adder_4/adder_4.srcs/sources_1/new/adder_4.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_4_dig_7seg' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/new/decode_4_dig_7seg.v:23]
+	Parameter n bound to: 2 - type: integer 
+	Parameter width bound to: 18 - type: integer 
+	Parameter YY bound to: 250000 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Delayer_Counter' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/Delayer_Counter.v:8]
+	Parameter n bound to: 2 - type: integer 
+	Parameter width bound to: 18 - type: integer 
+	Parameter YY bound to: 250000 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Delayer' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/Delayer_Counter/Delayer.v:8]
+	Parameter width bound to: 18 - type: integer 
+	Parameter YY bound to: 250000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Delayer' (3#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/Delayer_Counter/Delayer.v:8]
+INFO: [Synth 8-6157] synthesizing module 'counter_param' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/counter_param.v:6]
+	Parameter n bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'counter_param' (4#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/counter_param.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'Delayer_Counter' (5#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/Delayer_Counter.v:8]
+INFO: [Synth 8-6157] synthesizing module 'mux_4_1_size_4' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/mux_4_1_size_4.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mux_4_1_size_4' (6#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/mux_4_1_size_4.v:23]
+WARNING: [Synth 8-689] width (5) of port connection 'Y' does not match port width (4) of module 'mux_4_1_size_4' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/new/decode_4_dig_7seg.v:52]
+INFO: [Synth 8-6157] synthesizing module 'decoder_bin_hex_7seg' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'decoder_bin_hex_7seg' (7#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_2_4_display' [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decode_2_4_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_2_4_display' (8#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decode_2_4_display.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_4_dig_7seg' (9#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/imports/vivado/decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/new/decode_4_dig_7seg.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder_subs_4' (10#1) [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/sources_1/new/adder_subs_4.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2597.676 ; gain = 0.000 ; free physical = 20354 ; free virtual = 39995
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2597.676 ; gain = 0.000 ; free physical = 20417 ; free virtual = 40058
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2597.676 ; gain = 0.000 ; free physical = 20417 ; free virtual = 40058
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2597.676 ; gain = 0.000 ; free physical = 20409 ; free virtual = 40050
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/constrs_1/new/adder-subs_4.xdc]
+Finished Parsing XDC File [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/constrs_1/new/adder-subs_4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.srcs/constrs_1/new/adder-subs_4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/adder_subs_4_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/adder_subs_4_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2701.473 ; gain = 0.000 ; free physical = 20270 ; free virtual = 39911
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2701.473 ; gain = 0.000 ; free physical = 20270 ; free virtual = 39911
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20385 ; free virtual = 40026
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20385 ; free virtual = 40026
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20388 ; free virtual = 40029
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20378 ; free virtual = 40020
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    2 Bit       Adders := 1     
++---XORs : 
+	   3 Input      1 Bit         XORs := 4     
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   5 Input    4 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20365 ; free virtual = 40010
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20242 ; free virtual = 39887
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20242 ; free virtual = 39887
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     5|
+|3     |LUT1   |     2|
+|4     |LUT2   |     5|
+|5     |LUT3   |     1|
+|6     |LUT4   |     4|
+|7     |LUT5   |    11|
+|8     |LUT6   |    12|
+|9     |FDCE   |    20|
+|10    |IBUF   |    11|
+|11    |OBUF   |    11|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20241 ; free virtual = 39886
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2701.473 ; gain = 0.000 ; free physical = 20290 ; free virtual = 39935
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2701.473 ; gain = 103.797 ; free physical = 20290 ; free virtual = 39935
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2701.473 ; gain = 0.000 ; free physical = 20381 ; free virtual = 40025
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2701.473 ; gain = 0.000 ; free physical = 20327 ; free virtual = 39972
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+35 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 2701.473 ; gain = 103.844 ; free physical = 20386 ; free virtual = 40031
+INFO: [Common 17-1381] The checkpoint '/home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/synth_1/adder_subs_4.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file adder_subs_4_utilization_synth.rpt -pb adder_subs_4_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jul  4 21:49:19 2021...

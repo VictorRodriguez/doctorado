@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sat Jul  3 23:37:12 2021
+| Date         : Sun Jul  4 20:54:31 2021
 | Host         : localhost.localdomain running 64-bit unknown
 | Command      : report_methodology -file decode_4_dig_7seg_methodology_drc_routed.rpt -pb decode_4_dig_7seg_methodology_drc_routed.pb -rpx decode_4_dig_7seg_methodology_drc_routed.rpx
 | Design       : decode_4_dig_7seg

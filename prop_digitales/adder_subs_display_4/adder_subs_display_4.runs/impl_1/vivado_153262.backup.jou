@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul  8 19:04:26 2021
+# Process ID: 153262
+# Current directory: /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.runs/impl_1
+# Command line: vivado -log adder_subs_dsiplay_4.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source adder_subs_dsiplay_4.tcl -notrace
+# Log file: /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.runs/impl_1/adder_subs_dsiplay_4.vdi
+# Journal file: /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source adder_subs_dsiplay_4.tcl -notrace

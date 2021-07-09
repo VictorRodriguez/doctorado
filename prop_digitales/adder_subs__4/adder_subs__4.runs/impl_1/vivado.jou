@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Jul  4 21:50:09 2021
+# Process ID: 27089
+# Current directory: /home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/impl_1
+# Command line: vivado -log adder_subs_4.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source adder_subs_4.tcl -notrace
+# Log file: /home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/impl_1/adder_subs_4.vdi
+# Journal file: /home/vmrod/devel/vivado/adder_subs__4/adder_subs__4.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source adder_subs_4.tcl -notrace

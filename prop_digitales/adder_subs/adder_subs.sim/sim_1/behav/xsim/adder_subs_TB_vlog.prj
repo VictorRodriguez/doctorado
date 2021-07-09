@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../adder_subs.srcs/sources_1/imports/vivado/comp_2_4/comp_2_4.srcs/sources_1/imports/new/adder_4.v" \
+"../../../../adder_subs.srcs/sources_1/new/adder_subs.v" \
+"../../../../adder_subs.srcs/sources_1/imports/new/check_carry_4.v" \
+"../../../../adder_subs.srcs/sources_1/imports/vivado/comp_2_4/comp_2_4.srcs/sources_1/new/comp_2_4.v" \
+"../../../../adder_subs.srcs/sources_1/imports/vivado/comp_2_4/comp_2_4.srcs/sources_1/imports/new/full_adder.v" \
+"../../../../adder_subs.srcs/sources_1/imports/vivado/mux_2_1_size_4/mux_2_1_size_4.srcs/sources_1/new/mux_2_1_size_4.v" \
+"../../../../adder_subs.srcs/sim_1/imports/new/adder_subs_4_TB.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
