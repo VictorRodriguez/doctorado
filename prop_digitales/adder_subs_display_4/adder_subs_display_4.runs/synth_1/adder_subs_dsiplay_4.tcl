@@ -101,8 +101,10 @@ read_verilog -library xil_defaultlib {
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/decode_2_4_display.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/decode_4_dig_7seg.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v
+  /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/dot_point_decode.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/full_adder.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/sources_1/imports/new/mux_2_1_size_4.v
+  /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/mux_4_1_size_1.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/mux_4_1_size_4.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/adder_subs_dsiplay_4.v
 }

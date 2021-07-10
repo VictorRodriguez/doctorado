@@ -26,6 +26,7 @@ module decode_4_dig_7seg # (parameter n = 2, parameter width = 18, parameter YY 
     input [3:0] B,
     input [3:0] C,
     input [3:0] D,
+    input dp_input,
     input clk,
     input rst,
     input enable,

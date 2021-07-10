@@ -34,17 +34,20 @@ module adder_subs_dsiplay_4 # (parameter n = 2, parameter width = 18, parameter 
     output seg_d,
     output seg_e,
     output seg_f,
-    output seg_g
+    output seg_g,
+    output dp
    );
     
     wire [3:0]wire_A,wire_B;
     wire [4:0]wire_Y,wire_Y_abs;
+    wire overflow;
     
     adder_subs adder_subs_0 (
     .A(A),
     .B(B),
     .sum_subs_sel(sum_subs_sel),
-    .Y(wire_Y)
+    .Y(wire_Y),
+    .overflow(wire_overflow)
     );
     
     abs_4 abs_4_0(
@@ -79,5 +82,16 @@ module adder_subs_dsiplay_4 # (parameter n = 2, parameter width = 18, parameter 
     .seg_g(seg_g),
     .SEL(SEL)
     );
+    
+    
+    dot_point_decode # (.n(n),.width(width),.YY(YY))dot_point_decode_0 (
+    .dot_input(~wire_overflow),
+    .dot_point(dp),
+    .rst(rst),
+    .clk(clk),
+    .enable(enable)
+    );
+    
+    //assign dp = 1'b1;
     
 endmodule

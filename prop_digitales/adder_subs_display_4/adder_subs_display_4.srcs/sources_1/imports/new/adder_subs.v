@@ -25,7 +25,8 @@ module adder_subs (
     input [3:0]A,
     input [3:0]B,
     input sum_subs_sel,
-    output [4:0]Y
+    output [4:0]Y,
+    output overflow
     );
     
     
@@ -45,6 +46,7 @@ module adder_subs (
     .cin(1'b0),
     .S(Y)
     );
-       
+    
+    assign overflow = Y[4];
     
 endmodule

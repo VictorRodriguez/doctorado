@@ -46,6 +46,11 @@ set_property PACKAGE_PIN V5 [get_ports {seg_f}]
 set_property PACKAGE_PIN U7 [get_ports {seg_g}]
 	set_property IOSTANDARD LVCMOS33 [get_ports {seg_g}]
 
+
+set_property PACKAGE_PIN V7 [get_ports dp]
+	set_property IOSTANDARD LVCMOS33 [get_ports dp]
+
+
 # ENABLE
 set_property PACKAGE_PIN U18 [get_ports enable]
 	set_property IOSTANDARD LVCMOS33 [get_ports enable]
