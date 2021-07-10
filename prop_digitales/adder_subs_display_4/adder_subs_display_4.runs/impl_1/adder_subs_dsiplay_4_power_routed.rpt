@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Thu Jul  8 19:05:01 2021
+| Date             : Sat Jul 10 09:05:13 2021
 | Host             : localhost.localdomain running 64-bit unknown
 | Command          : report_power -file adder_subs_dsiplay_4_power_routed.rpt -pb adder_subs_dsiplay_4_power_summary_routed.pb -rpx adder_subs_dsiplay_4_power_routed.rpx
 | Design           : adder_subs_dsiplay_4
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 9.701        |
+| Total On-Chip Power (W)  | 10.201       |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 9.565        |
-| Device Static (W)        | 0.135        |
+| Dynamic (W)              | 10.058       |
+| Device Static (W)        | 0.143        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 36.5         |
-| Junction Temperature (C) | 73.5         |
+| Max Ambient (C)          | 34.0         |
+| Junction Temperature (C) | 76.0         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.127 |       64 |       --- |             --- |
-|   LUT as Logic |     0.106 |       29 |     20800 |            0.14 |
+| Slice Logic    |     0.179 |       72 |       --- |             --- |
+|   LUT as Logic |     0.159 |       37 |     20800 |            0.18 |
 |   CARRY4       |     0.009 |        5 |      8150 |            0.06 |
 |   Register     |     0.006 |       20 |     41600 |            0.05 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |        1 |       --- |             --- |
-| Signals        |     0.205 |       64 |       --- |             --- |
-| I/O            |     9.233 |       23 |       106 |           21.70 |
-| Static Power   |     0.135 |          |           |                 |
-| Total          |     9.701 |          |           |                 |
+| Signals        |     0.247 |       73 |       --- |             --- |
+| I/O            |     9.632 |       23 |       106 |           21.70 |
+| Static Power   |     0.143 |          |           |                 |
+| Total          |    10.201 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,16 +71,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.434 |       0.373 |      0.062 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.355 |       0.337 |      0.018 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     2.603 |       2.602 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.534 |       0.466 |      0.068 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.371 |       0.351 |      0.019 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     2.716 |       2.715 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.002 |       0.000 |      0.002 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -138,11 +138,11 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| adder_subs_dsiplay_4  |     9.565 |
-|   nolabel_line49      |     0.206 |
-|     Delayer_Counter_1 |     0.206 |
-|       counter_i       |     0.131 |
-|       delay_i         |     0.075 |
+| adder_subs_dsiplay_4  |    10.058 |
+|   seg_0               |     0.249 |
+|     Delayer_Counter_1 |     0.249 |
+|       counter_i       |     0.175 |
+|       delay_i         |     0.074 |
 +-----------------------+-----------+
 
 

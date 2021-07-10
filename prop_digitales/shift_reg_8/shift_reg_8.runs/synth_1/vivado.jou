@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul  8 21:56:32 2021
+# Process ID: 214382
+# Current directory: /home/vmrod/devel/vivado/shift_reg_8/shift_reg_8.runs/synth_1
+# Command line: vivado -log shit_reg_8.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source shit_reg_8.tcl
+# Log file: /home/vmrod/devel/vivado/shift_reg_8/shift_reg_8.runs/synth_1/shit_reg_8.vds
+# Journal file: /home/vmrod/devel/vivado/shift_reg_8/shift_reg_8.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source shit_reg_8.tcl -notrace

@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Thu Jul  8 19:05:00 2021
+| Date         : Sat Jul 10 09:05:12 2021
 | Host         : localhost.localdomain running 64-bit unknown
 | Command      : report_drc -file adder_subs_dsiplay_4_drc_routed.rpt -pb adder_subs_dsiplay_4_drc_routed.pb -rpx adder_subs_dsiplay_4_drc_routed.rpx
 | Design       : adder_subs_dsiplay_4

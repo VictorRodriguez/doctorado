@@ -30,10 +30,7 @@ module adder_subs (
     
     
     wire [3:0] wire_A,wire_B_comp2,wire_B;
-    wire [4:0] wire_Y;
     wire [1:0] wire_CNT;
-    wire wire_co_1;
-    wire wire_co_2;
 
     // get the compl 2 of B
     comp_2_4 comp_2_4_0 (.A(B),.Y(wire_B_comp2));
@@ -45,9 +42,7 @@ module adder_subs (
     .A(A),
     .B(wire_B),
     .cin(1'b0),
-    .S(wire_Y),
-    .s_co_1(wire_co_1),
-    .s_co_2(wire_co_2)    
+    .S(Y)
     );
     
     //check_carry_4 check_carry_4_0(.A(wire_Y),.S(Y),.co_1(wire_co_1),.co_2(wire_co_2));

@@ -72,8 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
 set_param xicom.use_bs_reader 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-5332-localhost.localdomain/incrSyn
-set_msg_config -id {Common 17-41} -limit 10000000
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3908-localhost.localdomain/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -93,6 +92,8 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/sources_1/imports/Delayer_Counter/Delayer.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/Delayer_Counter.v
+  /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/abs_4.v
+  /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/abs_5.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/adder_4.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/new/adder_subs.v
   /home/vmrod/devel/vivado/adder_subs_display_4/adder_subs_display_4.srcs/sources_1/imports/sources_1/imports/new/comp_2_4.v

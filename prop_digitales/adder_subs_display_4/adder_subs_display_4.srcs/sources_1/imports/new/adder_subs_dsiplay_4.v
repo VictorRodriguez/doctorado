@@ -35,9 +35,10 @@ module adder_subs_dsiplay_4 # (parameter n = 2, parameter width = 18, parameter 
     output seg_e,
     output seg_f,
     output seg_g
-    );
+   );
     
-    wire [4:0]wire_Y;
+    wire [3:0]wire_A,wire_B;
+    wire [4:0]wire_Y,wire_Y_abs;
     
     adder_subs adder_subs_0 (
     .A(A),
@@ -46,11 +47,26 @@ module adder_subs_dsiplay_4 # (parameter n = 2, parameter width = 18, parameter 
     .Y(wire_Y)
     );
     
-    decode_4_dig_7seg # (.n(n),.width(width),.YY(YY))(
-    .A(wire_Y[3:0]),
-    .B({4'b0000,wire_Y[4]}),
-    .C(B),
-    .D(A),
+    abs_4 abs_4_0(
+    .A(A),
+    .A_abs(wire_A)
+    );
+    
+    abs_4 abs_4_1(
+    .A(B),
+    .A_abs(wire_B)
+    );
+    
+     abs_5 abs_5_0(
+    .A(wire_Y),
+    .A_abs(wire_Y_abs)
+    );
+    
+    decode_4_dig_7seg  # (.n(n),.width(width),.YY(YY)) seg_0 (
+    .A(wire_Y_abs[3:0]),
+    .B({4'b0000,wire_Y_abs[4]}),
+    .C(wire_B),
+    .D(wire_A),
     .clk(clk),
     .rst(rst),
     .enable(enable),

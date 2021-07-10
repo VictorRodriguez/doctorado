@@ -25,6 +25,6 @@ module comp_2_4(
     output [3:0] Y
     );
     
-    adder_4 adder_4_0 (.A(~A),.B({4'b0001}),.S(Y),.cin(1'b0),.s_co_1(),.s_co_2());
+    adder_4 adder_4_0 (.A(~A),.B({4'b0001}),.S(Y),.cin(1'b0));
 
 endmodule
