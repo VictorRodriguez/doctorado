@@ -85,7 +85,9 @@ module adder_subs_dsiplay_4 # (parameter n = 2, parameter width = 18, parameter 
     
     
     dot_point_decode # (.n(n),.width(width),.YY(YY))dot_point_decode_0 (
-    .dot_input(~wire_overflow),
+    .dot_input_a(~A[3]),
+    .dot_input_b(~B[3]),
+    .dot_input_s(~wire_overflow),
     .dot_point(dp),
     .rst(rst),
     .clk(clk),

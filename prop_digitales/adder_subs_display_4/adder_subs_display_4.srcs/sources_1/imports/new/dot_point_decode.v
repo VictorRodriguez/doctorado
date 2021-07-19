@@ -21,7 +21,9 @@
 
 
 module dot_point_decode # (parameter n = 2, parameter width = 18, parameter YY = 250_000)(
-    input dot_input,
+    input dot_input_a,
+    input dot_input_b,
+    input dot_input_s,
     output dot_point,
     input rst,
     input clk,
@@ -34,10 +36,10 @@ module dot_point_decode # (parameter n = 2, parameter width = 18, parameter YY =
     
     
     mux_4_1_size_1 mux_4_1_size_1_0(
-        .A(dot_input),
+        .A(dot_input_a),
         .B(1'b1),
-        .C(1'b1),
-        .D(1'b1),
+        .C(dot_input_b),
+        .D(dot_input_s),
         .Y(dot_point),
         .SEL(wire_CNT));
   

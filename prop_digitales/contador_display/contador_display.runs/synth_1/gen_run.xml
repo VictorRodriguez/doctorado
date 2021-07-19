@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1626364722">
+  <File Type="VDS-TIMING-PB" Name="contador_display_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="contador_display_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="contador_display.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="contador_display_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="contador_display_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="contador_display_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="contador_display.vds"/>
+  <File Type="REPORTS-TCL" Name="contador_display_reports.tcl"/>
+  <File Type="PA-TCL" Name="contador_display.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/Delayer_Counter/Delayer.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../Delayer_Counter/Delayer_Counter.srcs/sources_1/imports/Delayer_Counter/Delayer.v"/>
+        <Attr Name="ImportTime" Val="1537218762"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/contador.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../contador/contador.srcs/sources_1/new/contador.v"/>
+        <Attr Name="ImportTime" Val="1626348723"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/decoder_bin_hex_7seg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v"/>
+        <Attr Name="ImportTime" Val="1624756539"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/contador_display.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/counter_param.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/counter_param.v"/>
+        <Attr Name="ImportTime" Val="1537219502"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="contador_display"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/contador_display_CF.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

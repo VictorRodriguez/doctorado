@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul 15 07:15:50 2021
+# Process ID: 40048
+# Current directory: /home/vmrod/devel/vivado/contador_display/contador_display.runs/impl_1
+# Command line: vivado -log contador_display.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source contador_display.tcl -notrace
+# Log file: /home/vmrod/devel/vivado/contador_display/contador_display.runs/impl_1/contador_display.vdi
+# Journal file: /home/vmrod/devel/vivado/contador_display/contador_display.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source contador_display.tcl -notrace

@@ -29,12 +29,6 @@ module mux_2_1_size_4(
     );
     
     assign Y = (sel == 1'b1)? B:A;
-    
-    /*
-    assign Y = (sel == 1'b00)? B:
-               (sel == 1'b01)? B:
-               (sel == 1'b10)? B:
-               (sel == 1'b11)? B:4'b00000
-    */
+
 
 endmodule

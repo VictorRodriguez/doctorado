@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../contador_display.srcs/sources_1/imports/new/contador.v" \
+"../../../../contador_display.srcs/sources_1/new/contador_display.v" \
+"../../../../contador_display.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v" \
+"../../../../contador_display.srcs/sim_1/new/contador_display_TB.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
