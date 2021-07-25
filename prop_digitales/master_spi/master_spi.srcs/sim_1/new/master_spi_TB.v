@@ -22,16 +22,18 @@
 
 module master_spi_TB();
 
-reg clk,rst,read;
+reg clk,rst,read,miso;
 wire sclk,cs;
+wire [14:0]OUT;
 
-master_spi UUT(.rst(rst),.clk(clk),.sclk(sclk),.cs(cs),.read(read));
+master_spi UUT(.rst(rst),.clk(clk),.sclk(sclk),.cs(cs),.read(read), .miso(miso), .OUT(OUT));
 
 initial
     begin
     clk = 0;
     rst = 0;
     read = 1;
+    miso = 1;
     
     #5 rst = 1;
     #10 rst = 0;
@@ -47,4 +49,10 @@ always
     begin
     #500 read = ~read;
     end
+
+always
+    begin
+    #100 miso = ~miso;
+    end
+
 endmodule

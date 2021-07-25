@@ -1,0 +1,74 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jul 23 23:46:52 2021
+# Process ID: 867767
+# Current directory: /home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/impl_1
+# Command line: vivado -log delayer_same_duty.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source delayer_same_duty.tcl -notrace
+# Log file: /home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/impl_1/delayer_same_duty.vdi
+# Journal file: /home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source delayer_same_duty.tcl -notrace
+Command: open_checkpoint delayer_same_duty_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2596.613 ; gain = 0.000 ; free physical = 16783 ; free virtual = 37509
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2598.676 ; gain = 0.000 ; free physical = 16297 ; free virtual = 37023
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2867.574 ; gain = 19.812 ; free physical = 15753 ; free virtual = 36479
+Restored from archive | CPU: 0.080000 secs | Memory: 1.224495 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2867.574 ; gain = 19.812 ; free physical = 15753 ; free virtual = 36479
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2867.574 ; gain = 0.000 ; free physical = 15753 ; free virtual = 36479
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2020.2 (64-bit) build 3064766
+open_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2867.574 ; gain = 270.961 ; free physical = 15753 ; free virtual = 36478
+Command: write_bitstream -force delayer_same_duty.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/vmrod/tools/Xilinx_2/Vivado/2020.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC CFGBVS-1] Missing CFGBVS and CONFIG_VOLTAGE Design Properties: Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./delayer_same_duty.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
+INFO: [Common 17-186] '/home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Fri Jul 23 23:47:29 2021. For additional details about this file, please refer to the WebTalk help file at /home/vmrod/tools/Xilinx_2/Vivado/2020.2/doc/webtalk_introduction.html.
+INFO: [Common 17-83] Releasing license: Implementation
+23 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:08 ; elapsed = 00:00:19 . Memory (MB): peak = 3326.180 ; gain = 458.605 ; free physical = 15650 ; free virtual = 36377
+INFO: [Common 17-206] Exiting Vivado at Fri Jul 23 23:47:29 2021...

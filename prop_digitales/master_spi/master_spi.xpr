@@ -44,7 +44,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="33"/>
+    <Option Name="WTXSimLaunchSim" Val="39"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -77,6 +77,24 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Delayer_Counter/Delayer_Counter.srcs/sources_1/imports/Delayer_Counter/Delayer.v"/>
           <Attr Name="ImportTime" Val="1537218762"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/register_n.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../ergister_n/ergister_n.srcs/sources_1/new/register_n.v"/>
+          <Attr Name="ImportTime" Val="1626748758"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/shit_reg_8.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../shift_reg_8/shift_reg_8.srcs/sources_1/new/shit_reg_8.v"/>
+          <Attr Name="ImportTime" Val="1625798864"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Jul 23 23:44:45 2021
+# Process ID: 866109
+# Current directory: /home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/synth_1
+# Command line: vivado -log delayer_same_duty.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source delayer_same_duty.tcl
+# Log file: /home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/synth_1/delayer_same_duty.vds
+# Journal file: /home/vmrod/devel/vivado/delayer_same_duty/delayer_same_duty.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source delayer_same_duty.tcl -notrace

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1627215792">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BITSTR-SYSDEF" Name="sensor_luz.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="sensor_luz.ltx"/>
+  <File Type="BG-BGN" Name="sensor_luz.bgn"/>
+  <File Type="NPI_FILE" Name="sensor_luz.npi"/>
+  <File Type="BG-DRC" Name="sensor_luz.drc"/>
+  <File Type="RNPI_FILE" Name="sensor_luz.rnpi"/>
+  <File Type="CFI_FILE" Name="sensor_luz.cfi"/>
+  <File Type="RCFI_FILE" Name="sensor_luz.rcfi"/>
+  <File Type="PDI-FILE" Name="sensor_luz.pdi"/>
+  <File Type="BITSTR-MMI" Name="sensor_luz.mmi"/>
+  <File Type="BITSTR-BMM" Name="sensor_luz_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="sensor_luz.nky"/>
+  <File Type="BITSTR-RBT" Name="sensor_luz.rbt"/>
+  <File Type="BITSTR-MSK" Name="sensor_luz.msk"/>
+  <File Type="RBD_FILE" Name="sensor_luz.rbd"/>
+  <File Type="BG-BIN" Name="sensor_luz.bin"/>
+  <File Type="BG-BIT" Name="sensor_luz.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="sensor_luz_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="sensor_luz_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="sensor_luz_bus_skew_postroute_physopted.rpt"/>
+  <File Type="RDI-RDI" Name="sensor_luz.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="sensor_luz_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="sensor_luz_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="sensor_luz_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sensor_luz_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="sensor_luz_postroute_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="sensor_luz_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="sensor_luz_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="sensor_luz_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="sensor_luz_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="sensor_luz_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="sensor_luz_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="sensor_luz_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="sensor_luz_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="sensor_luz_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="sensor_luz_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="sensor_luz_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sensor_luz_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sensor_luz_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="sensor_luz_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="sensor_luz_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="sensor_luz_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="sensor_luz_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="sensor_luz_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="sensor_luz_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="sensor_luz_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="sensor_luz_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="sensor_luz_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="sensor_luz_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="sensor_luz_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="sensor_luz_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="sensor_luz_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="sensor_luz_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="sensor_luz_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="sensor_luz_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="sensor_luz_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="sensor_luz_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="sensor_luz_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="sensor_luz_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="sensor_luz_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="sensor_luz_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="sensor_luz_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="sensor_luz_pwropt.dcp"/>
+  <File Type="OPT-TIMING" Name="sensor_luz_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="sensor_luz.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="sensor_luz_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="sensor_luz_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="sensor_luz_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="sensor_luz_timing_summary_init.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="sensor_luz_bus_skew_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="sensor_luz_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="sensor_luz_bus_skew_routed.pb"/>
+  <File Type="PA-TCL" Name="sensor_luz.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/new/BCD.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../binary_BCD_perc/binary_BCD_perc.srcs/sources_1/imports/new/BCD.v"/>
+        <Attr Name="ImportTime" Val="1627188022"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/Delayer_Counter/Delayer.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../delayer_same_duty/delayer_same_duty.srcs/sources_1/imports/Delayer_Counter/Delayer.v"/>
+        <Attr Name="ImportTime" Val="1537218762"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/Delayer_Counter.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/Delayer_Counter.v"/>
+        <Attr Name="ImportTime" Val="1537220728"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/new/binary_bcd_perc.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../binary_BCD_perc/binary_BCD_perc.srcs/sources_1/new/binary_bcd_perc.v"/>
+        <Attr Name="ImportTime" Val="1627215528"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/counter_param.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/counter_param.v"/>
+        <Attr Name="ImportTime" Val="1537219502"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/decode_2_4_display.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decode_2_4_display.v"/>
+        <Attr Name="ImportTime" Val="1625449856"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/decode_4_dig_7seg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/new/decode_4_dig_7seg.v"/>
+        <Attr Name="ImportTime" Val="1625373353"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/decoder_bin_hex_7seg.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v"/>
+        <Attr Name="ImportTime" Val="1624756539"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/new/delayer_same_duty.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../delayer_same_duty/delayer_same_duty.srcs/sources_1/new/delayer_same_duty.v"/>
+        <Attr Name="ImportTime" Val="1627101585"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/new/ff_t.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../delayer_same_duty/delayer_same_duty.srcs/sources_1/imports/new/ff_t.v"/>
+        <Attr Name="ImportTime" Val="1627100346"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/new/mux_4_1_size_4.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/mux_4_1_size_4.v"/>
+        <Attr Name="ImportTime" Val="1625107997"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/imports/new/register_n.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../master_spi/master_spi.srcs/sources_1/imports/new/register_n.v"/>
+        <Attr Name="ImportTime" Val="1626748758"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/imports/new/shit_reg_8.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../master_spi/master_spi.srcs/sources_1/imports/new/shit_reg_8.v"/>
+        <Attr Name="ImportTime" Val="1626668354"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/sensor_luz.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="sensor_luz"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/sensor_luz_CF.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

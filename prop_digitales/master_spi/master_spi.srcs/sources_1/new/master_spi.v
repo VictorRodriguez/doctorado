@@ -24,8 +24,10 @@ module master_spi(
     input read,
     input rst,
     input clk,
+    input miso,
     output sclk,
-    output reg cs
+    output reg cs,
+    output [14:0] OUT
     );
 
 parameter S0 = 1'b0, S1 = 1'b1;
@@ -33,6 +35,7 @@ parameter S0 = 1'b0, S1 = 1'b1;
 reg     state;
 reg     enable_sclk_delay;
 wire    count;
+wire    [14:0]wire_output;
 
 Delayer # (.width(5), .YY(14) ) delayer_16 (
     .clk(clk),
@@ -40,10 +43,25 @@ Delayer # (.width(5), .YY(14) ) delayer_16 (
     .enable(enable_sclk_delay),
     .iguales(count)
     );
- 
- assign sclk = enable_sclk_delay & clk;
- 
+
+shit_reg_15 shit_reg_15_0(
+    .serin(miso),
+    .Q(wire_output),
+    .clk(clk),
+    .enable(~cs),
+    .rst(rst)
+    );
+
+register_n # (.n(15)) register_n_15(
+    .D(wire_output),
+    .clk(clk),
+    .rst(rst),
+    .load(count),
+    .Q(OUT)
+    );
     
+assign sclk = enable_sclk_delay & clk;
+
 always @ (state) begin
     case (state)
     S0:begin

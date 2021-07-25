@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Jul 25 07:12:24 2021
+# Process ID: 1119475
+# Current directory: /home/vmrod/devel/vivado/hex_porcentage/hex_porcentage.runs/synth_1
+# Command line: vivado -log hex_porcentage.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hex_porcentage.tcl
+# Log file: /home/vmrod/devel/vivado/hex_porcentage/hex_porcentage.runs/synth_1/hex_porcentage.vds
+# Journal file: /home/vmrod/devel/vivado/hex_porcentage/hex_porcentage.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source hex_porcentage.tcl -notrace
