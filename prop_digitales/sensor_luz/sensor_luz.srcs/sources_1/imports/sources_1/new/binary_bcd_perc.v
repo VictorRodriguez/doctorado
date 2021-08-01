@@ -22,7 +22,9 @@
 
 module binary_bcd_perc(
     input [7:0] DATA_IN,
-    output [11:0] DATA_OUT
+    output [11:0] DATA_OUT,
+    output [7:0] leds_bar
+
     );
     
     
@@ -291,8 +293,12 @@ module binary_bcd_perc(
         endcase
     end
     
+    binary_led_bar binary_led_bar_0(
+    .INPUT_BINARY(porcentage),
+    .leds_bar(leds_bar)
+    );
     
-    BCD (
+    BCD BCD_0(
         .bin(porcentage), 
         .bcd(DATA_OUT)
     );

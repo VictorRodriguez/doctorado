@@ -40,6 +40,13 @@ module sensor_luz(
     output [3:0]SEL
     );
     
+    wire [14:0]shift_reg_data;
+    wire [7:0]reg_8;
+    wire [11:0] wire_BCD;
+    
+    wire read_timer;
+    wire load_signal;
+    
     // Genera un reloj de 1 MHz
     delayer_same_duty # (.width(6), .YY(50)) sclk_clock(
     .clk(clk),
@@ -50,59 +57,52 @@ module sensor_luz(
     
     assign sclk_led = sclk;
     
-    // Genera un reloj de 1 seg para leer cada segundo el sensor
-    delayer_same_duty # (.width(27), .YY(50000000)) cs_clock(
+    // Genera un reloj de 1 seg para leer cada segundo el sensor; YY = 50000000
+    delayer_same_duty # (.width(27), .YY(50000000)) read_clock(
     .clk(clk),
     .rst(rst),
     .enable(~enable),
-    .out(cs)
+    .out(read_timer)
     );
-    
-    
+
+    master_spi_v2 master_spi (
+    .clk(sclk), 
+    .read(read_timer),
+    .rst(rst), 
+    .count_limit(),
+    .out(), 
+    .cs(cs),
+    .load(load_signal),
+    .start_count(),
+    .reset_counter());
     
     assign cs_led = cs;
 
-    shit_reg # (.width(15))(
+    shit_reg # (.width(15)) shit_reg_0(
     .serin(sdo),
     .Q(shift_reg_data),
     .clk(sclk),
-    .enable(cs),
+    .enable(read_timer),
     .rst(rst)
     );
-    
-    
-    wire [14:0]shift_reg_data;
-    wire [7:0]reg_8;
-    wire [11:0] wire_BCD;
-    
-    register_n # (.n(8))(
+        
+    register_n # (.n(8)) register_n_0(
     .D(shift_reg_data[10:3]),
-    .clk(clk),
+    .clk(sclk),
     .rst(rst),
-    .load(~cs),
+    .load(load_signal),
     .Q(reg_8)
     );
     
-    assign led = reg_8;
-   /*
-    master_spi master_spi_0(
-    .read(wire_read),
-    .rst(rst),
-    .clk(clk_spi),
-    .miso(sdo),
-    .sclk(sclk),
-    .cs(cs),
-    .OUT(led)
-    );
-    */
+//    assign led = reg_8;
     
-    
-    binary_bcd_perc(
+    binary_bcd_perc binary_bcd_perc_0(
     .DATA_IN(reg_8),
-    .DATA_OUT(wire_BCD)
+    .DATA_OUT(wire_BCD),
+    .leds_bar(led)
     );
     
-    decode_4_dig_7seg # (.n(2), .width(18), .YY(250_000)) decode_4_dig_7seg_1 (
+    decode_4_dig_7seg # (.n(2), .width(18), .YY(250_000)) decode_4_dig_7seg_0 (
     .A(wire_BCD[3:0]),
     .B(wire_BCD[7:4]),
     .C(wire_BCD[11:8]),
@@ -120,6 +120,4 @@ module sensor_luz(
     .SEL(SEL)
     );       
 
-    
-    
 endmodule

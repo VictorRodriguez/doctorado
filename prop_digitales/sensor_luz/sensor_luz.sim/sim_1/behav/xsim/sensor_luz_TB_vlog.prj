@@ -1,9 +1,20 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../sensor_luz.srcs/sources_1/imports/sources_1/imports/new/BCD.v" \
 "../../../../sensor_luz.srcs/sources_1/imports/sources_1/imports/Delayer_Counter/Delayer.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/Delayer_Counter.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/sources_1/new/binary_bcd_perc.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/counter_param.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/decode_2_4_display.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/decode_4_dig_7seg.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v" \
 "../../../../sensor_luz.srcs/sources_1/imports/sources_1/new/delayer_same_duty.v" \
 "../../../../sensor_luz.srcs/sources_1/imports/sources_1/imports/new/ff_t.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/master_spi_v2.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/new/mux_4_1_size_4.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/imports/new/register_n.v" \
 "../../../../sensor_luz.srcs/sources_1/new/sensor_luz.v" \
+"../../../../sensor_luz.srcs/sources_1/imports/imports/new/shit_reg_8.v" \
 "../../../../sensor_luz.srcs/sim_1/new/sensor_luz_TB.v" \
 
 # compile glbl module

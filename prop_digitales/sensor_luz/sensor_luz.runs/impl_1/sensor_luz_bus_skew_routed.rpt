@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Jul 25 07:24:28 2021
+| Date         : Sun Aug  1 12:03:57 2021
 | Host         : android-6e99548312af8616 running 64-bit unknown
 | Command      : report_bus_skew -warn_on_violation -file sensor_luz_bus_skew_routed.rpt -pb sensor_luz_bus_skew_routed.pb -rpx sensor_luz_bus_skew_routed.rpx
 | Design       : sensor_luz

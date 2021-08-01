@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Jul 25 07:58:03 2021
+# Process ID: 1138259
+# Current directory: /home/vmrod/devel/vivado/sensor_luz_v2/sensor_luz_v2.runs/synth_1
+# Command line: vivado -log sensor_luz_v2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sensor_luz_v2.tcl
+# Log file: /home/vmrod/devel/vivado/sensor_luz_v2/sensor_luz_v2.runs/synth_1/sensor_luz_v2.vds
+# Journal file: /home/vmrod/devel/vivado/sensor_luz_v2/sensor_luz_v2.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source sensor_luz_v2.tcl -notrace

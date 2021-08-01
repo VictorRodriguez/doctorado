@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Jul 25 07:24:16 2021
+| Date         : Sun Aug  1 12:03:45 2021
 | Host         : android-6e99548312af8616 running 64-bit unknown
 | Command      : report_drc -file sensor_luz_drc_opted.rpt -pb sensor_luz_drc_opted.pb -rpx sensor_luz_drc_opted.rpx
 | Design       : sensor_luz

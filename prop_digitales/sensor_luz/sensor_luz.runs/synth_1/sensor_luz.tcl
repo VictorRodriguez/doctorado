@@ -72,7 +72,8 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 1
 set_param xicom.use_bs_reader 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1063186-android-6e99548312af8616/incrSyn
+set_param synth.incrementalSynthesisCache ./.Xil/Vivado-3893-android-6e99548312af8616/incrSyn
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -94,12 +95,14 @@ read_verilog -library xil_defaultlib {
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/sources_1/imports/Delayer_Counter/Delayer.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/Delayer_Counter.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/sources_1/new/binary_bcd_perc.v
+  /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/binary_led_bar.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/counter_param.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/decode_2_4_display.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/decode_4_dig_7seg.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/decoder_bin_hex_7seg.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/sources_1/new/delayer_same_duty.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/sources_1/imports/new/ff_t.v
+  /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/master_spi_v2.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/new/mux_4_1_size_4.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/imports/new/register_n.v
   /home/vmrod/devel/vivado/sensor_luz/sensor_luz.srcs/sources_1/imports/imports/new/shit_reg_8.v

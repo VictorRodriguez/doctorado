@@ -1,0 +1,1 @@
+-wto "eee78a1bb7bb487195d0cec0ceaa24dc" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "sensor_luz_behav" "xil_defaultlib.sensor_luz" "xil_defaultlib.glbl" -log "elaborate.log" 

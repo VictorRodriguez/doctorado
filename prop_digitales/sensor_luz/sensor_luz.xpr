@@ -44,7 +44,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="19"/>
+    <Option Name="WTXSimLaunchSim" Val="28"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -109,6 +109,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/binary_led_bar.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../binary_bar_led/binary_bar_led.srcs/sources_1/new/binary_led_bar.v"/>
+          <Attr Name="ImportTime" Val="1627836656"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/new/counter_param.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/counter_param.v"/>
@@ -163,6 +172,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/master_spi_v2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../master_spi_v2/master_spi_v2.srcs/sources_1/new/master_spi_v2.v"/>
+          <Attr Name="ImportTime" Val="1627828059"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/new/mux_4_1_size_4.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../decode_4_dig_7seg/decode_4_dig_7seg.srcs/sources_1/imports/new/mux_4_1_size_4.v"/>
@@ -192,6 +210,14 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/sensor_luz.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

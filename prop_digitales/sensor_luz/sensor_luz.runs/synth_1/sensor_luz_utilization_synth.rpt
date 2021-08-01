@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Jul 25 07:23:43 2021
+| Date         : Sun Aug  1 12:03:12 2021
 | Host         : android-6e99548312af8616 running 64-bit unknown
 | Command      : report_utilization -file sensor_luz_utilization_synth.rpt -pb sensor_luz_utilization_synth.pb
 | Design       : sensor_luz
@@ -30,8 +30,8 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   82 |     0 |     20800 |  0.39 |
-|   LUT as Logic          |   82 |     0 |     20800 |  0.39 |
+| Slice LUTs*             |   96 |     0 |     20800 |  0.46 |
+|   LUT as Logic          |   96 |     0 |     20800 |  0.46 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
 | Slice Registers         |   83 |     0 |     41600 |  0.20 |
 |   Register as Flip Flop |   83 |     0 |     41600 |  0.20 |
@@ -54,10 +54,10 @@ Table of Contents
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 0     |          Yes |           - |          Set |
-| 65    |          Yes |           - |        Reset |
-| 2     |          Yes |         Set |            - |
-| 16    |          Yes |       Reset |            - |
+| 1     |          Yes |           - |          Set |
+| 72    |          Yes |           - |        Reset |
+| 1     |          Yes |         Set |            - |
+| 9     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,20 +149,21 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |   65 |        Flop & Latch |
-| LUT6     |   36 |                 LUT |
-| LUT2     |   26 |                 LUT |
+| FDCE     |   72 |        Flop & Latch |
+| LUT6     |   41 |                 LUT |
+| LUT2     |   30 |                 LUT |
 | OBUF     |   23 |                  IO |
-| FDRE     |   16 |        Flop & Latch |
-| LUT5     |   12 |                 LUT |
-| LUT4     |   12 |                 LUT |
+| LUT5     |   20 |                 LUT |
+| LUT4     |   14 |                 LUT |
 | CARRY4   |   12 |          CarryLogic |
+| FDRE     |    9 |        Flop & Latch |
 | MUXF7    |    8 |               MuxFx |
-| LUT3     |    6 |                 LUT |
+| LUT3     |    7 |                 LUT |
 | MUXF8    |    4 |               MuxFx |
 | IBUF     |    4 |                  IO |
-| LUT1     |    2 |                 LUT |
-| FDSE     |    2 |        Flop & Latch |
+| LUT1     |    1 |                 LUT |
+| FDSE     |    1 |        Flop & Latch |
+| FDPE     |    1 |        Flop & Latch |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
