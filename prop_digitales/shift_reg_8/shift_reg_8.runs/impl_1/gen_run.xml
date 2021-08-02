@@ -15,17 +15,17 @@
   <File Type="PLACE-DCP" Name="shit_reg_8_placed.dcp"/>
   <File Type="OPT-DCP" Name="shit_reg_8_opt.dcp"/>
   <File Type="ROUTE-BUS-SKEW" Name="shit_reg_8_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="shit_reg_8_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="shit_reg_8_timing_summary_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="shit_reg_8.ltx"/>
   <File Type="BITSTR-SYSDEF" Name="shit_reg_8.sysdef"/>
   <File Type="BITSTR-MMI" Name="shit_reg_8.mmi"/>
   <File Type="BITSTR-BMM" Name="shit_reg_8_bd.bmm"/>
+  <File Type="ROUTE-CLK" Name="shit_reg_8_clock_utilization_routed.rpt"/>
   <File Type="BITSTR-NKY" Name="shit_reg_8.nky"/>
   <File Type="BITSTR-RBT" Name="shit_reg_8.rbt"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="shit_reg_8_bus_skew_routed.rpx"/>
   <File Type="REPORTS-TCL" Name="shit_reg_8_reports.tcl"/>
+  <File Type="ROUTE-TIMING-RPX" Name="shit_reg_8_timing_summary_routed.rpx"/>
   <File Type="BITSTR-MSK" Name="shit_reg_8.msk"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="shit_reg_8_bus_skew_routed.pb"/>
   <File Type="PA-TCL" Name="shit_reg_8.tcl"/>

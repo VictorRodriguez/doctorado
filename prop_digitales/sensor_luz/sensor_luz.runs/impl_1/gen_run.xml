@@ -1,80 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1627837360">
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BITSTR-SYSDEF" Name="sensor_luz.sysdef"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="sensor_luz.ltx"/>
-  <File Type="BG-BGN" Name="sensor_luz.bgn"/>
-  <File Type="NPI_FILE" Name="sensor_luz.npi"/>
-  <File Type="BG-DRC" Name="sensor_luz.drc"/>
-  <File Type="RNPI_FILE" Name="sensor_luz.rnpi"/>
   <File Type="CFI_FILE" Name="sensor_luz.cfi"/>
   <File Type="RCFI_FILE" Name="sensor_luz.rcfi"/>
   <File Type="PDI-FILE" Name="sensor_luz.pdi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sensor_luz_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-RPX" Name="sensor_luz_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sensor_luz_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="sensor_luz_methodology_drc_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sensor_luz_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="sensor_luz_postroute_physopt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="sensor_luz_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="sensor_luz_postplace_pwropt.dcp"/>
+  <File Type="PWROPT-DCP" Name="sensor_luz_pwropt.dcp"/>
+  <File Type="PLACE-DCP" Name="sensor_luz_placed.dcp"/>
+  <File Type="OPT-DCP" Name="sensor_luz_opt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="sensor_luz_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="sensor_luz_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="sensor_luz_timing_summary_routed.rpx"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="sensor_luz.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="sensor_luz.sysdef"/>
   <File Type="BITSTR-MMI" Name="sensor_luz.mmi"/>
   <File Type="BITSTR-BMM" Name="sensor_luz_bd.bmm"/>
   <File Type="BITSTR-NKY" Name="sensor_luz.nky"/>
   <File Type="BITSTR-RBT" Name="sensor_luz.rbt"/>
-  <File Type="BITSTR-MSK" Name="sensor_luz.msk"/>
-  <File Type="RBD_FILE" Name="sensor_luz.rbd"/>
-  <File Type="BG-BIN" Name="sensor_luz.bin"/>
-  <File Type="BG-BIT" Name="sensor_luz.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="sensor_luz_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="sensor_luz_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="sensor_luz_bus_skew_postroute_physopted.rpt"/>
-  <File Type="RDI-RDI" Name="sensor_luz.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="sensor_luz_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="sensor_luz_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="sensor_luz_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="sensor_luz_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="sensor_luz_postroute_physopt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="sensor_luz_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="sensor_luz_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="sensor_luz_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="sensor_luz_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="sensor_luz_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="sensor_luz_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="sensor_luz_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="sensor_luz_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="sensor_luz_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="sensor_luz_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="sensor_luz_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="sensor_luz_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="sensor_luz_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="sensor_luz_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="sensor_luz_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="sensor_luz_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="sensor_luz_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="sensor_luz_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="sensor_luz_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="sensor_luz_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="sensor_luz_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="sensor_luz_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="sensor_luz_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="sensor_luz_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="sensor_luz_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="sensor_luz_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="sensor_luz_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="sensor_luz_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="sensor_luz_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="sensor_luz_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="sensor_luz_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="sensor_luz_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="sensor_luz_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="sensor_luz_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="sensor_luz_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="sensor_luz_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="sensor_luz_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="sensor_luz_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="sensor_luz.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="sensor_luz_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="sensor_luz_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="sensor_luz_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="sensor_luz_timing_summary_init.rpt"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="sensor_luz_bus_skew_routed.rpx"/>
   <File Type="REPORTS-TCL" Name="sensor_luz_reports.tcl"/>
+  <File Type="BITSTR-MSK" Name="sensor_luz.msk"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="sensor_luz_bus_skew_routed.pb"/>
   <File Type="PA-TCL" Name="sensor_luz.tcl"/>
+  <File Type="ROUTE-TIMING-PB" Name="sensor_luz_timing_summary_routed.pb"/>
+  <File Type="OPT-DRC" Name="sensor_luz_drc_opted.rpt"/>
+  <File Type="RBD_FILE" Name="sensor_luz.rbd"/>
+  <File Type="BG-BIN" Name="sensor_luz.bin"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="sensor_luz_timing_summary_routed.rpt"/>
+  <File Type="NPI_FILE" Name="sensor_luz.npi"/>
+  <File Type="BG-BGN" Name="sensor_luz.bgn"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="sensor_luz_routed_bb.dcp"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="RDI-RDI" Name="sensor_luz.vdi"/>
+  <File Type="RNPI_FILE" Name="sensor_luz.rnpi"/>
+  <File Type="BG-DRC" Name="sensor_luz.drc"/>
+  <File Type="ROUTE-ERROR-DCP" Name="sensor_luz_routed_error.dcp"/>
+  <File Type="BG-BIT" Name="sensor_luz.bit"/>
+  <File Type="ROUTE-STATUS-PB" Name="sensor_luz_route_status.pb"/>
+  <File Type="OPT-HWDEF" Name="sensor_luz.hwdef"/>
+  <File Type="PLACE-IO" Name="sensor_luz_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="sensor_luz_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="sensor_luz_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="sensor_luz_control_sets_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="sensor_luz_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DRC" Name="sensor_luz_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="sensor_luz_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="sensor_luz_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="sensor_luz_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="sensor_luz_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="sensor_luz_route_status.rpt"/>
+  <File Type="ROUTE-DCP" Name="sensor_luz_routed.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/new/BCD.v">
@@ -254,5 +236,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>

@@ -4,13 +4,11 @@
 
 module register_n_TB();
 
-parameter n = 4;
-
 reg clk,rst,load;
-reg [n-1:0]D;
-wire [n-1:0]Q;
+reg [3:0]D;
+wire [3:0]Q;
 
-register_n # (.n(n)) UUT(
+register_n # (.n(4)) UUT(
     .D(D),
     .clk(clk),
     .rst(rst),
@@ -36,5 +34,14 @@ always
     #10 clk = ~clk;
     end
     
+always
+    begin
+    #50 D = D + 1;
+    end
+    
+always
+    begin
+    #100 load = ~load;
+    end  
     
 endmodule

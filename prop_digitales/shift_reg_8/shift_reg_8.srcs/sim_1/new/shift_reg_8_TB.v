@@ -28,7 +28,7 @@ reg enable;
 reg rst;
 wire [7:0]Q;
 
-shit_reg_8 UUT(
+shit_reg  # (.width(8)) UUT(
      .serin(serin),
      .Q(Q),
      .clk(clk),

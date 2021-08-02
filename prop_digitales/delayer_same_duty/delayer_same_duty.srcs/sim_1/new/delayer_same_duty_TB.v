@@ -25,7 +25,7 @@ module delayer_same_duty_TB();
 reg clk,rst,enable;
 wire out;
 
-delayer_same_duty # (.width(8), .YY(10)) UUT(
+delayer_same_duty # (.width(4), .YY(10)) UUT(
     .clk(clk),
     .rst(rst),
     .enable(enable),
@@ -36,9 +36,9 @@ initial
     begin
     clk = 0;
     rst = 1;
-    enable = 1;
+    enable = 0;
     
-    #20 rst = 0;
+    #15 rst = 0;
     end
 
 always

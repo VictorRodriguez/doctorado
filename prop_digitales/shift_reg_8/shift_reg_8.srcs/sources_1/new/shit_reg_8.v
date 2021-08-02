@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module shit_reg_8(
+module shit_reg # (parameter width = 8)(
     input serin,
-    output reg [7:0] Q,
+    output reg [width-1:0] Q,
     input clk,
     input enable,
     input rst
@@ -31,10 +31,10 @@ module shit_reg_8(
    always@(posedge rst or posedge clk)
    begin
         if (rst)
-            Q <= 8'b00;
+            Q <= {width{1'b0}};
         else
             if(enable)
-                Q <= {serin,Q[7:1]};
+                Q <= {serin,Q[width-1:1]};
             else
                 Q <= Q;
    end

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<webTalkData  fileName='usage_statistics_ext_xsim.xml'  majorVersion='1' minorVersion='0' timeStamp='Fri Jul 23 23:27:52 2021'>
+<webTalkData  fileName='usage_statistics_ext_xsim.xml'  majorVersion='1' minorVersion='0' timeStamp='Mon Aug  2 11:44:23 2021'>
 <section name="__ROOT__" level="0" order="1" description="">
  <section name="software_version_and_target_device" level="1" order="1" description="">
   <keyValuePair key="beta" value="FALSE" description="" />
   <keyValuePair key="build_version" value="3064766" description="" />
-  <keyValuePair key="date_generated" value="Fri Jul 23 23:27:51 2021" description="" />
+  <keyValuePair key="date_generated" value="Mon Aug  2 11:44:22 2021" description="" />
   <keyValuePair key="os_platform" value="LIN64" description="" />
   <keyValuePair key="product_version" value="XSIM v2020.2 (64-bit)" description="" />
   <keyValuePair key="project_id" value="40b6d692de37478b8c851db325b44b96" description="" />
-  <keyValuePair key="project_iteration" value="2" description="" />
+  <keyValuePair key="project_iteration" value="18" description="" />
   <keyValuePair key="random_id" value="744c9114-614a-45f6-a02f-35fc0b595572" description="" />
   <keyValuePair key="registration_id" value="212238188_0_0_004" description="" />
   <keyValuePair key="route_design" value="FALSE" description="" />
@@ -20,7 +20,7 @@
  </section>
  <section name="user_environment" level="1" order="2" description="">
   <keyValuePair key="cpu_name" value="Intel(R) Core(TM) i7-8809G CPU @ 3.10GHz" description="" />
-  <keyValuePair key="cpu_speed" value="4078.153 MHz" description="" />
+  <keyValuePair key="cpu_speed" value="4051.413 MHz" description="" />
   <keyValuePair key="os_name" value="unknown" description="" />
   <keyValuePair key="os_release" value="unknown" description="" />
   <keyValuePair key="system_ram" value="33.000 GB" description="" />
@@ -33,10 +33,10 @@
    <keyValuePair key="command" value="xsim" description="" />
   </section>
   <section name="usage" level="2" order="2" description="">
-   <keyValuePair key="iteration" value="1" description="" />
-   <keyValuePair key="runtime" value="1 us" description="" />
+   <keyValuePair key="iteration" value="0" description="" />
+   <keyValuePair key="runtime" value="216459820 ns" description="" />
    <keyValuePair key="simulation_memory" value="125812_KB" description="" />
-   <keyValuePair key="simulation_time" value="0.06_sec" description="" />
+   <keyValuePair key="simulation_time" value="3.93_sec" description="" />
    <keyValuePair key="trace_waveform" value="true" description="" />
   </section>
  </section>
