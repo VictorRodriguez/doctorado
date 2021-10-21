@@ -1,9 +1,10 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
 // Company: ITESO
 // Engineer: Victor Rodriguez
-//////////////////////////////////////////////////////////////////////////////////
-
+// Module to make multiplication using shift registers ( only positive numbers )
+////////////////////////////////////////////////////////////////////////////////
 
 module multiplicador(
     input [4:0] A,
@@ -13,7 +14,7 @@ module multiplicador(
     input enable,
     input rst
     );
-    
+
     wire [4:0]p_result_0_in;
     wire [4:0]p_result_1_in;
     wire [4:0]p_result_2_in;
@@ -24,14 +25,14 @@ module multiplicador(
     wire [9:0]p_result_2;
     wire [9:0]p_result_3;
     wire [9:0]p_result_4;
-    
-    
+
+
     wire [4:0]A_abs;
     wire [4:0]B_abs;
-    
+
     assign A_abs = (A[4]== 1'b1)? -A:A;
     assign B_abs = (B[4]== 1'b1)? -B:B;
-        
+
     assign p_result_0_in = (A_abs[0]== 1'b0)? 5'b00000: B_abs;
     assign p_result_1_in = (A_abs[1]== 1'b0)? 5'b00000: B_abs;
     assign p_result_2_in = (A_abs[2]== 1'b0)? 5'b00000: B_abs;
@@ -45,7 +46,7 @@ module multiplicador(
     .enable(enable),
     .clk(clk)
     );
-        
+
     shift_left_n_register # (.N(1)) reg_1(
     .IN(p_result_1_in),
     .OUT(p_result_1),
@@ -53,7 +54,7 @@ module multiplicador(
     .enable(enable),
     .clk(clk)
     );
-    
+
     shift_left_n_register # (.N(2)) reg_2(
     .IN(p_result_2_in),
     .OUT(p_result_2),
@@ -61,7 +62,7 @@ module multiplicador(
     .enable(enable),
     .clk(clk)
     );
-    
+
     shift_left_n_register # (.N(3)) reg_3(
     .IN(p_result_3_in),
     .OUT(p_result_3),
@@ -69,7 +70,7 @@ module multiplicador(
     .enable(enable),
     .clk(clk)
     );
-        
+
     shift_left_n_register # (.N(4)) reg_4(
     .IN(p_result_4_in),
     .OUT(p_result_4),
@@ -77,7 +78,7 @@ module multiplicador(
     .enable(enable),
     .clk(clk)
     );
-    
+
     assign RESULT = p_result_0 + p_result_1 + p_result_2 + p_result_3 + p_result_4;
-    
+
 endmodule
