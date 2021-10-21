@@ -1,0 +1,8 @@
+
+State Machine - |Accumulator|Debouncer:debouncer_ins|estado
+Name estado.off1 estado.sw_1 estado.shot estado.ini estado.off2 
+estado.ini 0 0 0 0 0 
+estado.shot 0 0 1 1 0 
+estado.sw_1 0 1 0 1 0 
+estado.off1 1 0 0 1 0 
+estado.off2 0 0 0 1 1 
