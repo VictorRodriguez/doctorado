@@ -5,10 +5,10 @@ module my_nand_tb();
 	reg a,b;
 	wire salida;
 	
-	module my_nand UUT(
+	my_nand UUT(
 	.a(a),
 	.b(b),
-	.y)(salida);
+	.y(salida));
 	
 
 	initial 
@@ -19,12 +19,12 @@ module my_nand_tb();
 	
 	always
 		begin
-			#10 a = ~a
+			#10 a = ~a;
 		end
 
 	always
 		begin
-			#20 b = ~b
+			#20 b = ~b;
 		end
 endmodule
 	

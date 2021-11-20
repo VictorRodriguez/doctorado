@@ -11,13 +11,13 @@ module seq_mul #(parameter N = 4)(
     input rst,
     //input enable,
     input start,
-    input [N-1:0] A, //multiplicant
-    input [N-1:0] B,// multiplier
+    input [4:0] A, //multiplicant
+    input [4:0] B,// multiplier
     output [2*N:0] RESULT,
     output ready,
     output [3:0] state,
-    output [N-1:0] multiplier,
-    output [2*N-1:0] multiplicant,
+    output [4:0] multiplier,
+    output [9:0] multiplicant,
     output count_start,
     output shift_multiplier_rigth,
     output add_multiplicant,
@@ -30,7 +30,7 @@ module seq_mul #(parameter N = 4)(
 
     Counter_Param  # (.n(3)) Counter_Param_1(.clk(clk),.rst(rst),.enable(count_start_wire),.Q(Q));
     
-    seq_mul_FSM  #(.N(N)) seq_mul_FSM_1(
+    seq_mul_FSM  #(.N(5)) seq_mul_FSM_1(
     .clk(clk),
     .rst(rst),
     .start(start),
@@ -43,7 +43,7 @@ module seq_mul #(parameter N = 4)(
     .shift_multiplier_rigth(shift_multiplier_rigth)
     );
   
-    shift_right_pipo_reg #(.N(N))shift_right_pipo_reg_1(
+    shift_right_pipo_reg #(.N(5))shift_right_pipo_reg_1(
     .IN(B),
     .Q(multiplier),
     .clk(clk),
@@ -51,7 +51,7 @@ module seq_mul #(parameter N = 4)(
     .rst(rst)
     );
 
-    adder_shifter_reg #(.n(4))adder_shifter_reg_1(
+    adder_shifter_reg #(.n(5))adder_shifter_reg_1(
     .A(A),
     .count(Q),
     .Q(RESULT),

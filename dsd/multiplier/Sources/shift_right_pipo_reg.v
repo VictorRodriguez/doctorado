@@ -6,9 +6,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module shift_right_pipo_reg #(parameter N = 8) (
+module shift_right_pipo_reg #(parameter N = 5) (
     input [N-1:0] IN,
-    output reg [2*N-1:0] Q,
+    output reg [N-1:0] Q,
     input clk,
     input enable,
     input rst

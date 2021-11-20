@@ -1,0 +1,687 @@
+Analysis & Synthesis report for UART_full
+Sat Nov 13 17:25:51 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Rx_state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Shift_Register_R_Param:shift_reg
+ 15. Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Bit_Rate_Pulse:BR_pulse
+ 16. Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Counter_Param:Counter_bits
+ 17. Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Heard_Bit:design_monitor
+ 18. Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|PISO_register:PISO_register_0
+ 19. Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0
+ 20. Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|Bit_Rate_Pulse:BR_pulse
+ 21. Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|Counter_Param:Counter_Param_0
+ 22. Parameter Settings for User Entity Instance: Reg_Param:Reg_Param_1
+ 23. Parameter Settings for User Entity Instance: BCD:BCD_1
+ 24. Port Connectivity Checks: "BCD:BCD_1"
+ 25. Port Connectivity Checks: "Reg_Param:Reg_Param_1"
+ 26. Port Connectivity Checks: "UART_TX:UART_TX_1|Bit_Rate_Pulse:BR_pulse"
+ 27. Port Connectivity Checks: "UART_TX:UART_TX_1|PISO_register:PISO_register_0"
+ 28. Port Connectivity Checks: "UART_TX:UART_TX_1"
+ 29. Port Connectivity Checks: "UART_Rx:UART_Rx_1|Heard_Bit:design_monitor"
+ 30. Port Connectivity Checks: "UART_Rx:UART_Rx_1|Bit_Rate_Pulse:BR_pulse"
+ 31. Port Connectivity Checks: "UART_Rx:UART_Rx_1"
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sat Nov 13 17:25:51 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; UART_full                                   ;
+; Top-level Entity Name           ; UART_full                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 99                                          ;
+; Total pins                      ; 44                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
+; Top-level entity name                                                           ; UART_full          ; UART_full          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                       ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+; Sources/UART_TX_FSM.v            ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v            ;         ;
+; Sources/UART_TX.v                ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/UART_TX.v                ;         ;
+; Sources/PISO_register.v          ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/PISO_register.v          ;         ;
+; Sources/parity_checker.v         ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/parity_checker.v         ;         ;
+; Sources/decode_7_anode.v         ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/decode_7_anode.v         ;         ;
+; Sources/BCD.v                    ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/BCD.v                    ;         ;
+; Sources/UART_Rx.v                ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v                ;         ;
+; Sources/Shift_Register_R_Param.v ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/Shift_Register_R_Param.v ;         ;
+; Sources/Reg_Param.v              ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/Reg_Param.v              ;         ;
+; Sources/Heard_Bit.v              ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/Heard_Bit.v              ;         ;
+; Sources/FSM_UART_Rx.v            ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/FSM_UART_Rx.v            ;         ;
+; Sources/FF_D_enable.v            ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/FF_D_enable.v            ;         ;
+; Sources/Counter_Param.v          ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/Counter_Param.v          ;         ;
+; Sources/Bit_Rate_Pulse.v         ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/Bit_Rate_Pulse.v         ;         ;
+; Sources/UART_full.v              ; yes             ; User Verilog HDL File  ; /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v              ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 85        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 134       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 26        ;
+;     -- 5 input functions                    ; 16        ;
+;     -- 4 input functions                    ; 21        ;
+;     -- <=3 input functions                  ; 71        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 99        ;
+;                                             ;           ;
+; I/O pins                                    ; 44        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 99        ;
+; Total fan-out                               ; 933       ;
+; Average fan-out                             ; 2.91      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+------------------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                           ; Entity Name            ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+------------------------+--------------+
+; |UART_full                               ; 134 (0)             ; 99 (0)                    ; 0                 ; 0          ; 44   ; 0            ; |UART_full                                                    ; UART_full              ; work         ;
+;    |BCD:BCD_1|                           ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|BCD:BCD_1                                          ; BCD                    ; work         ;
+;    |Reg_Param:Reg_Param_1|               ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|Reg_Param:Reg_Param_1                              ; Reg_Param              ; work         ;
+;    |UART_Rx:UART_Rx_1|                   ; 68 (0)              ; 59 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_Rx:UART_Rx_1                                  ; UART_Rx                ; work         ;
+;       |Bit_Rate_Pulse:BR_pulse|          ; 20 (20)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_Rx:UART_Rx_1|Bit_Rate_Pulse:BR_pulse          ; Bit_Rate_Pulse         ; work         ;
+;       |Counter_Param:Counter_bits|       ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_Rx:UART_Rx_1|Counter_Param:Counter_bits       ; Counter_Param          ; work         ;
+;       |FSM_UART_Rx:FSM_Rx|               ; 13 (13)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx               ; FSM_UART_Rx            ; work         ;
+;       |Heard_Bit:design_monitor|         ; 31 (31)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_Rx:UART_Rx_1|Heard_Bit:design_monitor         ; Heard_Bit              ; work         ;
+;       |Shift_Register_R_Param:shift_reg| ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_Rx:UART_Rx_1|Shift_Register_R_Param:shift_reg ; Shift_Register_R_Param ; work         ;
+;    |UART_TX:UART_TX_1|                   ; 36 (0)              ; 32 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_TX:UART_TX_1                                  ; UART_TX                ; work         ;
+;       |Bit_Rate_Pulse:BR_pulse|          ; 16 (16)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_TX:UART_TX_1|Bit_Rate_Pulse:BR_pulse          ; Bit_Rate_Pulse         ; work         ;
+;       |Counter_Param:Counter_Param_0|    ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_TX:UART_TX_1|Counter_Param:Counter_Param_0    ; Counter_Param          ; work         ;
+;       |PISO_register:PISO_register_0|    ; 3 (3)               ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_TX:UART_TX_1|PISO_register:PISO_register_0    ; PISO_register          ; work         ;
+;       |UART_TX_FSM:UART_TX_FSM_0|        ; 13 (13)             ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0        ; UART_TX_FSM            ; work         ;
+;    |decode_7_anode:decode_7_anode_1|     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|decode_7_anode:decode_7_anode_1                    ; decode_7_anode         ; work         ;
+;    |decode_7_anode:decode_7_anode_2|     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|decode_7_anode:decode_7_anode_2                    ; decode_7_anode         ; work         ;
+;    |decode_7_anode:decode_7_anode_3|     ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|decode_7_anode:decode_7_anode_3                    ; decode_7_anode         ; work         ;
+;    |parity_checker:parity_checker_0|     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |UART_full|parity_checker:parity_checker_0                    ; parity_checker         ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------+------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Rx_state                                                                                              ;
++-------------------------+-------------------------+-----------------+--------------------+-------------------+--------------------+------------------+----------------+
+; Name                    ; Rx_state.SAVE_RX_DATA_S ; Rx_state.STOP_S ; Rx_state.RX_WAIT_S ; Rx_state.SAMPLE_S ; Rx_state.RX_BITS_S ; Rx_state.START_S ; Rx_state.INI_S ;
++-------------------------+-------------------------+-----------------+--------------------+-------------------+--------------------+------------------+----------------+
+; Rx_state.INI_S          ; 0                       ; 0               ; 0                  ; 0                 ; 0                  ; 0                ; 0              ;
+; Rx_state.START_S        ; 0                       ; 0               ; 0                  ; 0                 ; 0                  ; 1                ; 1              ;
+; Rx_state.RX_BITS_S      ; 0                       ; 0               ; 0                  ; 0                 ; 1                  ; 0                ; 1              ;
+; Rx_state.SAMPLE_S       ; 0                       ; 0               ; 0                  ; 1                 ; 0                  ; 0                ; 1              ;
+; Rx_state.RX_WAIT_S      ; 0                       ; 0               ; 1                  ; 0                 ; 0                  ; 0                ; 1              ;
+; Rx_state.STOP_S         ; 0                       ; 1               ; 0                  ; 0                 ; 0                  ; 0                ; 1              ;
+; Rx_state.SAVE_RX_DATA_S ; 1                       ; 0               ; 0                  ; 0                 ; 0                  ; 0                ; 1              ;
++-------------------------+-------------------------+-----------------+--------------------+-------------------+--------------------+------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                          ;
++------------------------------------------------------------------+--------------------------------------------------+------------------------+
+; Latch Name                                                       ; Latch Enable Signal                              ; Free of Timing Hazards ;
++------------------------------------------------------------------+--------------------------------------------------+------------------------+
+; UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|load_register        ; UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|Mux4 ; yes                    ;
+; UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|rst_boudrate_counter ; UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|Mux8 ; yes                    ;
+; UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|rst_bit_counter      ; UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|Mux6 ; yes                    ;
+; Number of user-specified and inferred latches = 3                ;                                                  ;                        ;
++------------------------------------------------------------------+--------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------+
+; Registers Removed During Synthesis                                    ;
++--------------------------------------------------+--------------------+
+; Register name                                    ; Reason for Removal ;
++--------------------------------------------------+--------------------+
+; UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Rx_state~8  ; Lost fanout        ;
+; UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Rx_state~9  ; Lost fanout        ;
+; UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Rx_state~10 ; Lost fanout        ;
+; Total Number of Removed Registers = 3            ;                    ;
++--------------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 99    ;
+; Number of registers using Synchronous Clear  ; 51    ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 99    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------+
+; Inverted Register Statistics                                         ;
++------------------------------------------------------------+---------+
+; Inverted Register                                          ; Fan out ;
++------------------------------------------------------------+---------+
+; UART_TX:UART_TX_1|PISO_register:PISO_register_0|Serial_Out ; 1       ;
+; Total number of inverted registers = 1                     ;         ;
++------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |UART_full|UART_TX:UART_TX_1|PISO_register:PISO_register_0|tmp[3] ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Selector1         ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Selector2         ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Selector4         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Shift_Register_R_Param:shift_reg ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; width          ; 9     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Bit_Rate_Pulse:BR_pulse ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; delay_counts   ; 5210  ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Counter_Param:Counter_bits ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_Rx:UART_Rx_1|Heard_Bit:design_monitor ;
++--------------------+----------+---------------------------------------------------------+
+; Parameter Name     ; Value    ; Type                                                    ;
++--------------------+----------+---------------------------------------------------------+
+; Half_Period_Counts ; 25000000 ; Signed Integer                                          ;
++--------------------+----------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|PISO_register:PISO_register_0 ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; n              ; 11    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; S0             ; 000   ; Unsigned Binary                                                 ;
+; S1             ; 001   ; Unsigned Binary                                                 ;
+; S2             ; 010   ; Unsigned Binary                                                 ;
+; S3             ; 011   ; Unsigned Binary                                                 ;
+; S4             ; 100   ; Unsigned Binary                                                 ;
+; S5             ; 101   ; Unsigned Binary                                                 ;
+; S6             ; 110   ; Unsigned Binary                                                 ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|Bit_Rate_Pulse:BR_pulse ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; delay_counts   ; 5210  ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_TX:UART_TX_1|Counter_Param:Counter_Param_0 ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg_Param:Reg_Param_1 ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; width          ; 8     ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BCD:BCD_1 ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; W              ; 8     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BCD:BCD_1"                                                                                                                                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; bcd  ; Output ; Warning  ; Output or bidir port (10 bits) is smaller than the port expression (12 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "Reg_Param:Reg_Param_1" ;
++--------+-------+----------+-----------------------+
+; Port   ; Type  ; Severity ; Details               ;
++--------+-------+----------+-----------------------+
+; enable ; Input ; Info     ; Stuck at VCC          ;
++--------+-------+----------+-----------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_TX:UART_TX_1|Bit_Rate_Pulse:BR_pulse" ;
++---------------+--------+----------+-----------------------------------+
+; Port          ; Type   ; Severity ; Details                           ;
++---------------+--------+----------+-----------------------------------+
+; enable        ; Input  ; Info     ; Stuck at VCC                      ;
+; end_half_time ; Output ; Info     ; Explicitly unconnected            ;
++---------------+--------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_TX:UART_TX_1|PISO_register:PISO_register_0" ;
++-----------------+-------+----------+----------------------------------------+
+; Port            ; Type  ; Severity ; Details                                ;
++-----------------+-------+----------+----------------------------------------+
+; Parallel_In[10] ; Input ; Info     ; Stuck at VCC                           ;
+; Parallel_In[0]  ; Input ; Info     ; Stuck at GND                           ;
++-----------------+-------+----------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_TX:UART_TX_1"                                                                                                          ;
++-------------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port                    ; Type   ; Severity ; Details                                                                                                  ;
++-------------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; state                   ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; boudrate_counter_ready  ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; rst_boudrate_counter    ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; rst_bit_counter         ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; enable_bit_counter      ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; enable_boudrate_counter ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; bit_counter             ; Output ; Info     ; Explicitly unconnected                                                                                   ;
+; load_register           ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_Rx:UART_Rx_1|Heard_Bit:design_monitor" ;
++--------+-------+----------+--------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                    ;
++--------+-------+----------+--------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                               ;
++--------+-------+----------+--------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_Rx:UART_Rx_1|Bit_Rate_Pulse:BR_pulse" ;
++--------+-------+----------+-------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                   ;
++--------+-------+----------+-------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                              ;
++--------+-------+----------+-------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART_Rx:UART_Rx_1"                                                                                                         ;
++--------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                  ;
++--------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+; parity ; Output ; Info     ; Explicitly unconnected                                                                                                   ;
+; Rx_SR  ; Output ; Warning  ; Output or bidir port (9 bits) is wider than the port expression (8 bits) it drives; bit(s) "Rx_SR[8..8]" have no fanouts ;
++--------+--------+----------+--------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 99                          ;
+;     CLR               ; 27                          ;
+;     CLR SCLR          ; 51                          ;
+;     ENA CLR           ; 12                          ;
+;     ENA CLR SLD       ; 9                           ;
+; arriav_lcell_comb     ; 140                         ;
+;     arith             ; 51                          ;
+;         1 data inputs ; 51                          ;
+;     normal            ; 89                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 14                          ;
+;         4 data inputs ; 21                          ;
+;         5 data inputs ; 16                          ;
+;         6 data inputs ; 26                          ;
+; boundary_port         ; 44                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.21                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat Nov 13 17:25:45 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART_full -c UART_full
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file Sources/debouncing.v
+    Info (12023): Found entity 1: debouncing File: /home/vmrod/devel/quartus/UART_full/Sources/debouncing.v Line: 7
+    Info (12023): Found entity 2: clock_enable File: /home/vmrod/devel/quartus/UART_full/Sources/debouncing.v Line: 21
+    Info (12023): Found entity 3: my_dff_en File: /home/vmrod/devel/quartus/UART_full/Sources/debouncing.v Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/Delayer.v
+    Info (12023): Found entity 1: Delayer File: /home/vmrod/devel/quartus/UART_full/Sources/Delayer.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/UART_TX_FSM.v
+    Info (12023): Found entity 1: UART_TX_FSM File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/UART_TX.v
+    Info (12023): Found entity 1: UART_TX File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX.v Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/PISO_register.v
+    Info (12023): Found entity 1: PISO_register File: /home/vmrod/devel/quartus/UART_full/Sources/PISO_register.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/parity_checker.v
+    Info (12023): Found entity 1: parity_checker File: /home/vmrod/devel/quartus/UART_full/Sources/parity_checker.v Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/register_n.v
+    Info (12023): Found entity 1: register_n File: /home/vmrod/devel/quartus/UART_full/Sources/register_n.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/decode_7_anode.v
+    Info (12023): Found entity 1: decode_7_anode File: /home/vmrod/devel/quartus/UART_full/Sources/decode_7_anode.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/BCD.v
+    Info (12023): Found entity 1: BCD File: /home/vmrod/devel/quartus/UART_full/Sources/BCD.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/UART_Rx.v
+    Info (12023): Found entity 1: UART_Rx File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/UART_Rx_TB.v
+    Info (12023): Found entity 1: UART_Rx_TB File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx_TB.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/Shift_Register_R_Param.v
+    Info (12023): Found entity 1: Shift_Register_R_Param File: /home/vmrod/devel/quartus/UART_full/Sources/Shift_Register_R_Param.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/Reg_Param.v
+    Info (12023): Found entity 1: Reg_Param File: /home/vmrod/devel/quartus/UART_full/Sources/Reg_Param.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/Heard_Bit.v
+    Info (12023): Found entity 1: Heard_Bit File: /home/vmrod/devel/quartus/UART_full/Sources/Heard_Bit.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/FSM_UART_Rx.v
+    Info (12023): Found entity 1: FSM_UART_Rx File: /home/vmrod/devel/quartus/UART_full/Sources/FSM_UART_Rx.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/FF_D_enable.v
+    Info (12023): Found entity 1: FF_D_enable File: /home/vmrod/devel/quartus/UART_full/Sources/FF_D_enable.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/Counter_Param.v
+    Info (12023): Found entity 1: Counter_Param File: /home/vmrod/devel/quartus/UART_full/Sources/Counter_Param.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/Bit_Rate_Pulse.v
+    Info (12023): Found entity 1: Bit_Rate_Pulse File: /home/vmrod/devel/quartus/UART_full/Sources/Bit_Rate_Pulse.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/UART_full.v
+    Info (12023): Found entity 1: UART_full File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file Sources/UART_full_TB.v
+    Info (12023): Found entity 1: UART_full_TB File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full_TB.v Line: 8
+Info (12127): Elaborating entity "UART_full" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at UART_full.v(35): object "heard_bit_out_wire" assigned a value but never read File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 35
+Info (12128): Elaborating entity "UART_Rx" for hierarchy "UART_Rx:UART_Rx_1" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 30
+Info (12128): Elaborating entity "Shift_Register_R_Param" for hierarchy "UART_Rx:UART_Rx_1|Shift_Register_R_Param:shift_reg" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 25
+Info (12128): Elaborating entity "FF_D_enable" for hierarchy "UART_Rx:UART_Rx_1|FF_D_enable:ff_par" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 31
+Info (12128): Elaborating entity "Bit_Rate_Pulse" for hierarchy "UART_Rx:UART_Rx_1|Bit_Rate_Pulse:BR_pulse" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 37
+Info (12128): Elaborating entity "FSM_UART_Rx" for hierarchy "UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 42
+Info (12128): Elaborating entity "Counter_Param" for hierarchy "UART_Rx:UART_Rx_1|Counter_Param:Counter_bits" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 44
+Info (12128): Elaborating entity "Heard_Bit" for hierarchy "UART_Rx:UART_Rx_1|Heard_Bit:design_monitor" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_Rx.v Line: 47
+Info (12128): Elaborating entity "UART_TX" for hierarchy "UART_TX:UART_TX_1" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 50
+Info (12128): Elaborating entity "parity_checker" for hierarchy "UART_TX:UART_TX_1|parity_checker:parity_checker_0" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX.v Line: 48
+Info (12128): Elaborating entity "PISO_register" for hierarchy "UART_TX:UART_TX_1|PISO_register:PISO_register_0" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX.v Line: 59
+Info (12128): Elaborating entity "UART_TX_FSM" for hierarchy "UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX.v Line: 74
+Warning (10240): Verilog HDL Always Construct warning at UART_TX_FSM.v(30): inferring latch(es) for variable "enable_boudrate_counter", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Warning (10240): Verilog HDL Always Construct warning at UART_TX_FSM.v(30): inferring latch(es) for variable "rst_boudrate_counter", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Warning (10240): Verilog HDL Always Construct warning at UART_TX_FSM.v(30): inferring latch(es) for variable "rst_bit_counter", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Warning (10240): Verilog HDL Always Construct warning at UART_TX_FSM.v(30): inferring latch(es) for variable "load_register", which holds its previous value in one or more paths through the always construct File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Info (10041): Inferred latch for "load_register" at UART_TX_FSM.v(30) File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Info (10041): Inferred latch for "rst_bit_counter" at UART_TX_FSM.v(30) File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Info (10041): Inferred latch for "rst_boudrate_counter" at UART_TX_FSM.v(30) File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Info (10041): Inferred latch for "enable_boudrate_counter" at UART_TX_FSM.v(30) File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 30
+Info (12128): Elaborating entity "Reg_Param" for hierarchy "Reg_Param:Reg_Param_1" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 64
+Info (12128): Elaborating entity "BCD" for hierarchy "BCD:BCD_1" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 71
+Info (12128): Elaborating entity "decode_7_anode" for hierarchy "decode_7_anode:decode_7_anode_1" File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 82
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESULT_WIRE_BCD[11]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+    Warning (12110): Net "RESULT_WIRE_BCD[10]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESULT_WIRE_BCD[11]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+    Warning (12110): Net "RESULT_WIRE_BCD[10]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESULT_WIRE_BCD[11]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+    Warning (12110): Net "RESULT_WIRE_BCD[10]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESULT_WIRE_BCD[11]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+    Warning (12110): Net "RESULT_WIRE_BCD[10]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "RESULT_WIRE_BCD[11]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+    Warning (12110): Net "RESULT_WIRE_BCD[10]" is missing source, defaulting to GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 20
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|load_register has unsafe behavior File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|state[0] File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 84
+Warning (13012): Latch UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|rst_boudrate_counter has unsafe behavior File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 15
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|state[0] File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 84
+Warning (13012): Latch UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|rst_bit_counter has unsafe behavior File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal UART_TX:UART_TX_1|UART_TX_FSM:UART_TX_FSM_0|state[2] File: /home/vmrod/devel/quartus/UART_full/Sources/UART_TX_FSM.v Line: 84
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DISPLAYS[15]" is stuck at GND File: /home/vmrod/devel/quartus/UART_full/Sources/UART_full.v Line: 17
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 205 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 161 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 738 megabytes
+    Info: Processing ended: Sat Nov 13 17:25:51 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:16
+
+

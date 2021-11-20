@@ -1,0 +1,10 @@
+
+State Machine - |UART_full|UART_Rx:UART_Rx_1|FSM_UART_Rx:FSM_Rx|Rx_state
+Name Rx_state.SAVE_RX_DATA_S Rx_state.STOP_S Rx_state.RX_WAIT_S Rx_state.SAMPLE_S Rx_state.RX_BITS_S Rx_state.START_S Rx_state.INI_S 
+Rx_state.INI_S 0 0 0 0 0 0 0 
+Rx_state.START_S 0 0 0 0 0 1 1 
+Rx_state.RX_BITS_S 0 0 0 0 1 0 1 
+Rx_state.SAMPLE_S 0 0 0 1 0 0 1 
+Rx_state.RX_WAIT_S 0 0 1 0 0 0 1 
+Rx_state.STOP_S 0 1 0 0 0 0 1 
+Rx_state.SAVE_RX_DATA_S 1 0 0 0 0 0 1 

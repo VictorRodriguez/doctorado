@@ -1,0 +1,97 @@
+Archive Project report for UART_full
+Sat Nov  6 19:34:10 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Sat Nov  6 19:34:10 2021 ;
+; Revision Name          ; UART_full                             ;
+; Top-level Entity Name  ; UART_full                             ;
+; Family                 ; Cyclone V                             ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Source control' contains:
+    Info: Project source and settings files
+    Info: Automatically detected source files
+Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
+Info: Archive will store files relative to the closest common parent directory
+Info (13213): Using common directory /home/vmrod/devel/quartus/UART_full/
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive '/home/vmrod/devel/quartus/UART_full/UART_full.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'UART_full.archive.rpt'
+Info (23030): Evaluation of Tcl script /home/vmrod/intelFPGA_lite/20.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 847 megabytes
+    Info: Processing ended: Sat Nov  6 19:34:10 2021
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++-------------------------------------------------------------------------+
+; Files Archived                                                          ;
++-------------------------------------------------------------------------+
+; File Name                                                               ;
++-------------------------------------------------------------------------+
+; /home/vmrod/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf ;
+; Sources/BCD.v                                                           ;
+; Sources/Bit_Rate_Pulse.v                                                ;
+; Sources/Counter_Param.v                                                 ;
+; Sources/decode_7_anode.v                                                ;
+; Sources/Delayer.v                                                       ;
+; Sources/FF_D_enable.v                                                   ;
+; Sources/FSM_UART_Rx.v                                                   ;
+; Sources/Heard_Bit.v                                                     ;
+; Sources/parity_checker.v                                                ;
+; Sources/PISO_register.v                                                 ;
+; Sources/Reg_Param.v                                                     ;
+; Sources/register_n.v                                                    ;
+; Sources/Shift_Register_R_Param.v                                        ;
+; Sources/UART_full.v                                                     ;
+; Sources/UART_Rx.v                                                       ;
+; Sources/UART_Rx_TB.v                                                    ;
+; Sources/UART_TX.v                                                       ;
+; Sources/UART_TX_FSM.v                                                   ;
+; UART_full.qpf                                                           ;
+; UART_full.qsf                                                           ;
++-------------------------------------------------------------------------+
+
+

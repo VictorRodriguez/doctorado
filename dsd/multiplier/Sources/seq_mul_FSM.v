@@ -26,7 +26,7 @@ module seq_mul_FSM  #(parameter N = 4)(
     input rst,
     input start,
     input [2:0] count_value,
-    input [N-1:0] multiplier,
+    input [4:0] multiplier,
     output reg ready,
     output reg [3:0] state,
     output reg count_start,
@@ -119,7 +119,7 @@ case (state)
    S4:
       state <= S5;
    S5:
-      if(count_value == 3'b100)
+      if(count_value == 3'b101)
         state <= S6; //final state
       else
         state <= S7;

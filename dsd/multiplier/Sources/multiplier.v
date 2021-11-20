@@ -1,8 +1,3 @@
-/////////////////////////////////////////////////////////////////////////
-// Company: ITESO
-// Engineer: Victor Rodriguez
-// Top module to make multiplier using shift registers
-/////////////////////////////////////////////////////////////////////////
 
 
 module multiplier(
@@ -54,10 +49,7 @@ module multiplier(
     .Q(WIRE_REGISTER)
     );
 	 
-	  BCD(
-     .bin({WIRE_REGISTER}),
-     .bcd(RESULT_WIRE_BCD)
-    );
+	 bin2bcd #(10) bin2bcd_00 (WIRE_REGISTER,RESULT_WIRE_BCD);
 	 
 	 decode_7_anode(
     .IN(RESULT_WIRE_BCD[3:0]),

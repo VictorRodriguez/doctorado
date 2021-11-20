@@ -8,7 +8,7 @@
 
 module adder_shifter_reg #(parameter n = 8)(
     input [n-1:0] A,
-    input [3:0] count,
+    input [2:0] count,
     output reg [2*n-1:0]Q,
     input rst,
     input enable,

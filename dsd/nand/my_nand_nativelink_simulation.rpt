@@ -1,0 +1,53 @@
+Info: Start Nativelink Simulation process
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  Gate
+Family                :  cyclonev
+Quartus root          :  /home/vmrod/intelFPGA_lite/20.1/quartus/linux64/
+Quartus sim root      :  /home/vmrod/intelFPGA_lite/20.1/quartus/eda/sim_lib
+Simulation Tool       :  modelsim-altera
+Simulation Language   :  verilog
+Simulation Mode       :  GUI
+Sim Output File       :  my_nand.vo
+Sim SDF file          :  my_nand__verilog.sdo
+Sim dir               :  simulation/modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim-Altera software
+Sourced NativeLink script /home/vmrod/intelFPGA_lite/20.1/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File my_nand_run_msim_gate_verilog.do already exists - backing up current file as my_nand_run_msim_gate_verilog.do.bak
+Probing transcript
+ModelSim-Altera Info: # do my_nand_run_msim_gate_verilog.do
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+ModelSim-Altera Info: # vmap work gate_work 
+ModelSim-Altera Info: # Copying /home/vmrod/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vlog -vlog01compat -work work +incdir+. {my_nand.vo}
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+ModelSim-Altera Info: # Start time: 08:59:29 on Nov 08,2021
+ModelSim-Altera Info: # vlog -reportprogress 300 -vlog01compat -work work "+incdir+." my_nand.vo 
+ModelSim-Altera Info: # -- Compiling module my_nand
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Top level modules:
+ModelSim-Altera Info: # 	my_nand
+ModelSim-Altera Info: # End time: 08:59:29 on Nov 08,2021, Elapsed time: 0:00:00
+ModelSim-Altera Info: # Errors: 0, Warnings: 0
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: vsim -i -l msim_transcript rtl_work.my_nand_tb
+ModelSim-Altera Info: # vsim -i -l msim_transcript rtl_work.my_nand_tb 
+ModelSim-Altera Info: # Start time: 08:59:40 on Nov 08,2021
+ModelSim-Altera Info: # Loading rtl_work.my_nand_tb
+ModelSim-Altera Info: # Loading rtl_work.my_nand
+ModelSim-Altera Info: add wave -position insertpoint sim:/my_nand_tb/*
+ModelSim-Altera Info: run -all
+ModelSim-Altera Info: # End time: 09:00:05 on Nov 08,2021, Elapsed time: 0:00:25
+ModelSim-Altera Info: # Errors: 0, Warnings: 0
+Info: NativeLink simulation flow was successful

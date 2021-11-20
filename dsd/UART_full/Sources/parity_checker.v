@@ -1,0 +1,16 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: ITESO
+// Engineer: Victor Rodriguez
+// Module to detect parity: 
+// 1 = even (par)
+// 0 = odd (impar)
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module parity_checker(
+    input [7:0] INPUT,
+    output ans
+    );
+    assign ans = ^INPUT;
+endmodule
