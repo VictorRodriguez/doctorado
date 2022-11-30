@@ -62,7 +62,7 @@ def kmean_cluster(FILE,clusters):
     plt.savefig('clustering.png')
     plt.show()
 
-    return df_result
+    return df_result,kmeans
 
 def main():
 
