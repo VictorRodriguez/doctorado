@@ -44,7 +44,6 @@ def plot(df, image_file_name):
     plt.ylabel('% percentage')
     plt.xlabel('Workloads')
     plt.xticks(rotation='vertical')
-    plt.savefig(image_file_name, bbox_inches='tight')
 
 def process_results():
     files_list = []

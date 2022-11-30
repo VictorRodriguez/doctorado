@@ -36,14 +36,12 @@ def calculate_elbow(df):
     plt.xlabel('k')
     plt.ylabel('Distortion')
     plt.title('The Elbow Method showing the optimal k')
-    plt.savefig('distortion.png')
     plt.show()
 
     plt.plot(K, inertias, 'bx-')
     plt.xlabel('Values of K')
     plt.ylabel('Inertia')
     plt.title('The Elbow Method using Inertia')
-    plt.savefig('intertia.png')
     plt.show()
 
     print(kn.knee)

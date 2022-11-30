@@ -122,35 +122,19 @@ def main():
     args = parser.parse_args()
 
     if args.files:
-        df_intrinsics = pd.read_json('/Users/vrodri3/Downloads/intrinsics.json')
-        print(df_intrinsics['category'].explode().unique())
-        exit(0)
-        #my_labels = ['arithmetic', 'branch', 'store', 'other']
+        my_labels = ['arithmetic', 'branch', 'store', 'other']
         df_global = pd.DataFrame(columns=my_labels)
         for file_name in args.files:
             test_name = file_name
             df = read_histogram(file_name)
-
-            # new methodology using Intel intrinsics numbers
-            df_sumary = get_cathegory(df)
-
-            # uncoment this when using old methodology
-            #df_sumary = calcualte_values(df)
-
+            df_sumary = calcualte_values(df)
             df_global.loc[test_name] = df_sumary['percent'].values.tolist()
         plot_stacked_bar(df_global)
-        print(df_global)
         df_global.to_csv(results_file)
-        exit(0)
 
     elif args.histogram:
         df = read_histogram(args.histogram)
-
-        # new methodology using Intel intrinsics numbers
-        df_sumary = get_cathegory(df)
-
-        # uncoment this when using old methodology
-        #df_sumary = calcualte_values(df)
+        df_sumary = calcualte_values(df)
 
     elif args.cumulus_uri:
         df = read_json(args.cumulus_uri)

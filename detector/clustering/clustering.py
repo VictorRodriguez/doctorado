@@ -59,7 +59,6 @@ def kmean_cluster(FILE,clusters):
     plt.xlabel("component 1")
     plt.ylabel("component 2")
     plt.grid()
-    plt.savefig('clustering.png')
     plt.show()
 
     return df_result,kmeans

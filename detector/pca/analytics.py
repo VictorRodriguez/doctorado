@@ -26,7 +26,6 @@ def get_explained_variance(X_std):
     plt.xlabel('Principal component index')
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.savefig('variance.png')
     plt.show()
 
 
@@ -73,7 +72,6 @@ def get_TSNE(df, features, test_column):
         plt.annotate(label, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
 
     ax.grid()
-    plt.savefig('tsna.png')
     plt.show()
 
 
@@ -122,7 +120,6 @@ def get_PCA(df, features, test_column):
                  color='k', ha='center', va='center', fontsize=10)
 
     ax.grid()
-    plt.savefig('pca.png')
     plt.show()
 
     return finalDf
