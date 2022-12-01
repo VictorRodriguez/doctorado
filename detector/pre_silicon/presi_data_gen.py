@@ -1,6 +1,7 @@
 #!/bin/python3
 
 import json
+import os
 import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -55,10 +56,25 @@ def get_cathegory(df_histogram):
 def calcualte_values(df_copy):
 
     df_copy["count"] = pd.to_numeric(df_copy["count"])
+    file_path = os.path.abspath(__file__)
+    file_name = os.path.basename(file_path)
+    file_path = file_path.replace(file_name,"")
 
-    df_arithmetic = pd.read_csv('instructions_kind/arithmetic.csv')
-    df_branch = pd.read_csv('instructions_kind/branch.csv')
-    df_store = pd.read_csv('instructions_kind/store.csv')
+    file_path_a = os.path.join(file_path,'instructions_kind/arithmetic.csv')
+    file_path_b = os.path.join(file_path,'instructions_kind/branch.csv')
+    file_path_s = os.path.join(file_path,'instructions_kind/store.csv')
+    if os.path.isfile(file_path_a):
+        df_arithmetic = pd.read_csv(file_path_a)
+    else:
+        exit(0)
+    if os.path.isfile(file_path_b):
+        df_branch = pd.read_csv(file_path_b)
+    else:
+        exit(0)
+    if os.path.isfile(file_path_s):
+        df_store = pd.read_csv(file_path_s)
+    else:
+        exit(0)
 
     df_copy["pro"] = df_copy["count"]/df_copy["count"].sum()
 
@@ -73,6 +89,7 @@ def calcualte_values(df_copy):
                  ['other_counter', df_o['pro'].sum()]]
 
     df_prob = pd.DataFrame(data_prob, columns=['InstrKind', 'probability'])
+
     return (df_prob)
 
 
@@ -92,21 +109,22 @@ def get_pareto(df):
              color="C1", marker="D", ms=7)
     ax2.yaxis.set_major_formatter(PercentFormatter())
     ax.tick_params(axis="y", colors="C0")
+    ax.tick_params(axis="x", colors="C0",rotation=90)
     ax2.tick_params(axis="y", colors="C1")
     plt.show()
 
 
 def plot_sumary(df_sumary):
-    df_sumary.plot.pie(y = 'percent')
-    plt.show()
-
-def plot(df_sumary):
-    my_labels = ['arithmetic', 'branch', 'store', 'other']
-    df_sumary.plot(labels=my_labels, y='probability', kind='pie', autopct='%1.1f%%',
-                   startangle=15, shadow=True,)
+    print(df_sumary)
+    df_sumary.plot.pie(y = 'probability', \
+        labels = df_sumary['InstrKind'].tolist(), \
+        autopct='%1.1f%%',\
+        startangle=15,\
+        shadow=True
+        )
     plt.ylabel('')
     plt.show()
-    display(df_sumary)
+
 
 def plot_stacked_bar(df):
     df.plot.barh(stacked=True)
@@ -128,9 +146,10 @@ def main():
             test_name = file_name
             df = read_histogram(file_name)
             df_sumary = calcualte_values(df)
-            df_global.loc[test_name] = df_sumary['percent'].values.tolist()
+            df_global.loc[test_name] = df_sumary['probability'].values.tolist()
         plot_stacked_bar(df_global)
         df_global.to_csv(results_file)
+        exit(0)
 
     elif args.histogram:
         df = read_histogram(args.histogram)
