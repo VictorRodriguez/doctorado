@@ -35,9 +35,9 @@ def get_eigen(X_std):
     cov_mat = (X_std - mean_vec).T.dot((X_std - mean_vec)) / (X_std.shape[0]-1)
     eig_vals, eig_vecs = np.linalg.eig(cov_mat)
 
-    print(f'Covariance matrix \n {cov_mat}')
-    print(f'Eigenvectors \n {eig_vecs}')
-    print(f'Eigenvalues \n {eig_vals}')
+    #print(f'Covariance matrix \n {cov_mat}')
+    #print(f'Eigenvectors \n {eig_vecs}')
+    #print(f'Eigenvalues \n {eig_vals}')
     return eig_vals, eig_vecs
 
 
@@ -68,9 +68,11 @@ def get_TSNE(df, features, test_column):
     ax.set_title('2 component TSNE', fontsize=20)
     ax.scatter(finalDf['TSNE 1'], finalDf['TSNE 2'], c='g', s=50)
 
-    for i, label in enumerate(y):
-        plt.annotate(label, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
+    #for i, label in enumerate(y):
+    #    plt.annotate(label, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
 
+    for i, label in enumerate(y):
+        plt.annotate(i, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
     ax.grid()
     plt.show()
 
@@ -108,18 +110,32 @@ def get_PCA(df, features, test_column):
     ax.scatter(finalDf['principal component 1'],
                finalDf['principal component 2'], c='b', s=50)
 
+    #for i, label in enumerate(y):
+    #    plt.annotate(
+    #        label, (finalDf['principal component 1'][i], finalDf['principal component 2'][i]))
+
     for i, label in enumerate(y):
         plt.annotate(
-            label, (finalDf['principal component 1'][i], finalDf['principal component 2'][i]))
+            i, (finalDf['principal component 1'][i], finalDf['principal component 2'][i]))
 
-    coeff = eig_vecs
-    for i in range(len(features)):
-        plt.arrow(0, 0, coeff[i, 0], coeff[i, 1], color='k',
-                  alpha=0.9, linestyle='-', linewidth=1.5, overhang=0.2)
-        plt.text(coeff[i, 0] * 1.15, coeff[i, 1] * 1.15, features[i],
-                 color='k', ha='center', va='center', fontsize=10)
+    #coeff = eig_vecs
+    #for i in range(len(features)):
+    #    plt.arrow(0, 0, coeff[i, 0], coeff[i, 1], color='k',
+    #              alpha=0.9, linestyle='-', linewidth=1.5, overhang=0.2)
+    #    plt.text(coeff[i, 0] * 1.15, coeff[i, 1] * 1.15, features[i],
+    #             color='k', ha='center', va='center', fontsize=10)
 
     ax.grid()
+
+
+    plt.show()
+
+    plt.matshow(pca.components_, cmap='viridis')
+    plt.yticks([0, 1], ["First component", "Second component"])
+    plt.colorbar()
+    plt.xticks(range(len(features)), features, rotation=60, ha='left')
+    plt.xlabel("Feature")
+    plt.ylabel("Principal components")
     plt.show()
 
     return finalDf

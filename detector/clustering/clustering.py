@@ -48,11 +48,11 @@ def kmean_cluster(FILE,clusters):
     if "pca" in FILE:
         plt.scatter(df['principal component 1'], df['principal component 2'], c= kmeans.labels_.astype(float), s=50, alpha=0.5)
         for i, label in enumerate(y):
-            plt.annotate(label, (df['principal component 1'][i], df['principal component 2'][i]))
+            plt.annotate(i, (df['principal component 1'][i], df['principal component 2'][i]))
     elif "tsne" in FILE:
         plt.scatter(df['TSNE 1'], df['TSNE 2'], c= kmeans.labels_.astype(float), s=50, alpha=0.5)
         for i, label in enumerate(y):
-            plt.annotate(label, (df['TSNE 1'][i], df['TSNE 2'][i]))
+            plt.annotate(i, (df['TSNE 1'][i], df['TSNE 2'][i]))
     else:
         sys.exit(-1)
 
