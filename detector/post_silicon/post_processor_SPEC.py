@@ -3,7 +3,6 @@ import re
 import sys
 import warnings
 
-import matplotlib.pyplot as plt
 import pandas as pd
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -47,15 +46,6 @@ def process_files(files_list):
     return output
 
 
-def plot(df, image_file_name):
-    df.plot.bar(x="test_name", y=["branch_misses",
-                "cache_misses", "l1_dcache_load_misses"], rot=0)
-    plt.title('Workload characterization')
-    plt.ylabel('% percentage')
-    plt.xlabel('Workloads')
-    plt.xticks(rotation='vertical')
-
-
 def process_results():
     files_list = []
     logs_directory = "."
@@ -71,7 +61,6 @@ def process_results():
         df = process_files(files_list)
         df_sorted = (df.sort_values(by=['test_name']))
         df_sorted.to_csv('results.csv', index=False)
-        plot(df_sorted, "image_file_name.png")
     else:
         exit(-1)
 
