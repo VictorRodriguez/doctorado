@@ -15,6 +15,7 @@ def process_files(files_list):
             "test_name": "",
             "branch_misses": 0,
             "cache_misses": 0,
+            "ipc": 0,
             "l1_dcache_load_misses": 0
         }
 
@@ -30,6 +31,9 @@ def process_files(files_list):
                 if "cache-misses" in line:
                     result = re.search('#(.*)% of', line)
                     metrics_dict["cache_misses"] = float((result.group(1)).strip())
+                if "instructions" in line and "branch" not in line:
+                    result = re.search('#(.*) insn', line)
+                    metrics_dict["ipc"] = float((result.group(1)).strip())
                 if "L1-dcache-load-misses" in line:
                     result = re.search('#(.*)% of', line)
                     metrics_dict["l1_dcache_load_misses"] = float((result.group(1)).strip())

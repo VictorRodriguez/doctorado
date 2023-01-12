@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 
 tests_files = 'tests.csv'
 
-spec_workload  = "docker run --privileged -e BENCHMARK=_BENCH_ -e PLATFORM1=skylake speccpu-2017-v118-gcc-11.1.0-20210510"
+#spec_workload  = "docker run --privileged -e BENCHMARK=_BENCH_ -e PLATFORM1=skylake speccpu-2017-v118-gcc-11.1.0-20210510"
+spec_workload  = "./ctest.sh --set BENCHMARK=_BENCH_  -R test_speccpu_2017_v105_gated -V"
 
 perf_counters= " cycle_activity.cycles_l1d_miss,cycle_activity.cycles_mem_any,inst_retired.any,branch-instructions,branch-misses,cache-misses,cache-references,cycles,instructions,L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores"
 
