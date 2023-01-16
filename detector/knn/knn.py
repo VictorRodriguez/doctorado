@@ -8,7 +8,6 @@ from sklearn.model_selection import train_test_split
 
 # read pca.csv dataframe
 df = pd.read_csv('spec_17_data.csv')
-
 print(df)
 
 # Create feature and target arrays
@@ -21,10 +20,22 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 knn = KNeighborsClassifier(n_neighbors=7)
 
-knn.fit(X_train, y_train.values.ravel())
+knn.fit(X_train,y_train.values.ravel())
 
 print(X_train)
+print(X_train.shape)
 print(y_train.values.ravel())
 
 # Calculate the accuracy of the model
 print(knn.score(X_test, y_test))
+
+# initialize list of lists
+data = [[-1.5 , 1.1]]
+
+# Create the pandas DataFrame
+df_ = pd.DataFrame(data, columns=['principal component 1', 'principal component 2'])
+
+# print dataframe.
+print(df_)
+print(knn.predict(df_))
+
