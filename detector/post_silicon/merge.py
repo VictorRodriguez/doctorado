@@ -23,9 +23,12 @@ for file in files:
     column_name = file.strip("./").strip(".csv")
     df_global[column_name] = results
 
-print(df_global)
-df_ = (df_global.set_index('test_name').T)
-#df_.columns = df_.iloc[0]
-#f_ = df_.tail(-1)
-print(df_)
-df_.to_csv("summary.csv",index_label="test_name")
+df = df_global.set_index('test_name').T
+
+df['test_name_clean'] =  df.index.str.split('/').str[1].str.split('_').str[0]
+df = df.reset_index(drop=True)
+df.rename(columns={'test_name_clean': 'test_name'},inplace=True)
+df = df.set_index('test_name')
+print(df)
+print("file saved in: summary.csv")
+df.to_csv("summary.csv",index_label="test_name")
