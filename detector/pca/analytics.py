@@ -82,21 +82,16 @@ def get_PCA(df, features, test_column):
     x = df.loc[:, features].values
     # Separating out the target
     y = df.loc[:, [test_column]].values
-
     cov_mat = np.cov(x.T)
     eig_vals, eig_vecs = np.linalg.eig(cov_mat)
-
     # Standardizing the features
     X_std = StandardScaler().fit_transform(x)
 
     eig_vals, eig_vecs = get_eigen(X_std)
-
     get_explained_variance(X_std)
 
     pca = PCA(n_components=2)
-
     principalComponents = pca.fit_transform(X_std)
-
     principalDf = pd.DataFrame(data=principalComponents, columns=[
                                'principal component 1', 'principal component 2'])
     finalDf = pd.concat([principalDf, df[['test_name']]], axis=1)
@@ -144,9 +139,9 @@ def	project(featureVector,dataset):
     #	https://medium.com/free-code-camp/an-overview-of-principal-component-analysis-6340e3bc4073
     featureVectorTranspose	=	np.transpose(featureVector)
     print(featureVectorTranspose)
-    datasetTranspose	=	np.transpose(dataset)
-    print(datasetTranspose)
-    newDatasetTranspose	=	np.matmul(featureVectorTranspose,datasetTranspose)
+    #datasetTranspose	=	np.transpose(dataset)
+    #print(datasetTranspose)
+    newDatasetTranspose	=	np.matmul(featureVectorTranspose,dataset)
     newDataset	=	np.transpose(newDatasetTranspose)
     return	newDataset
 
@@ -163,21 +158,39 @@ def main():
         df	=	pd.read_csv(filename)
         features	= list(df.columns)[1:]
         test_column	= list(df.columns)[0]
-        pca_df,eig_vals,eig_vecs = get_PCA(df,	features,	test_column)
+        pca_df,eig_vals,eig_vecs = get_PCA(df,features,test_column)
         print(pca_df)
         print(eig_vals)
         print(eig_vecs)
         test_df	= pd.read_csv('post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv')
-        test_list = (test_df['results'].values.tolist())
-        print(test_list)
-
-        #test_list_std	=	StandardScaler().fit_transform(test_list)
+        t = np.asarray(test_df['results'])
+        t = t.reshape(-1,1)
+        t_std	=	StandardScaler().fit_transform(t)
+        print(t_std)
         v1 = (eig_vecs[:,0])
         v2 = (eig_vecs[:,1])
-        vectors	=	np.column_stack((v1,	v2))
+        vectors	=	np.column_stack((v1,v2))
         print(vectors)
-        pcas	=	project(vectors,test_list)
+        pcas = project(vectors,t_std)
         print(pcas)
+
+        y = df.loc[:, [test_column]].values
+
+        fig = plt.figure(figsize=(8, 8))
+        ax = fig.add_subplot(1, 1, 1)
+        ax.set_xlabel('Principal Component 1', fontsize=15)
+        ax.set_ylabel('Principal Component 2', fontsize=15)
+        ax.set_title('2 component PCA (new element)', fontsize=20)
+        ax.scatter(pca_df['principal component 1'],
+                   pca_df['principal component 2'], c='b', s=50)
+        for i, label in enumerate(y):
+            plt.annotate(
+                i, (pca_df['principal component 1'][i], pca_df['principal component 2'][i]))
+
+        plt.scatter(pcas[0,0],pcas[0,1] , c='red')
+
+        ax.grid()
+        plt.show()
     else:
         print("Filename	error")
 
