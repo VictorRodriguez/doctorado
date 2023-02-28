@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import sys
 from sklearn.manifold import TSNE
-
+import os
 
 def get_explained_variance(X_std):
 
@@ -138,37 +138,48 @@ def get_PCA(df, features, test_column):
     plt.ylabel("Principal components")
     plt.show()
 
-    return finalDf
+    return finalDf,eig_vals, eig_vecs
+
+def	project(featureVector,dataset):
+    #	https://medium.com/free-code-camp/an-overview-of-principal-component-analysis-6340e3bc4073
+    featureVectorTranspose	=	np.transpose(featureVector)
+    print(featureVectorTranspose)
+    datasetTranspose	=	np.transpose(dataset)
+    print(datasetTranspose)
+    newDatasetTranspose	=	np.matmul(featureVectorTranspose,datasetTranspose)
+    newDataset	=	np.transpose(newDatasetTranspose)
+    return	newDataset
+
 def main():
 
-    filename = None
-
-    if len(sys.argv) > 1:
-        filename = sys.argv[1]
+    filename	=	None
+    pca_df	=	None
+    if	len(sys.argv)	>	1:
+        filename	=	sys.argv[1]
     else:
-        filename = 'results_spec2017.csv'
+        filename	=	'post_silicon/summary.csv'
 
-    if filename:
-        df = pd.read_csv(filename)
+    if	os.path.exists(filename):
+        df	=	pd.read_csv(filename)
+        features	= list(df.columns)[1:]
+        test_column	= list(df.columns)[0]
+        pca_df,eig_vals,eig_vecs = get_PCA(df,	features,	test_column)
+        print(pca_df)
+        print(eig_vals)
+        print(eig_vecs)
+        test_df	= pd.read_csv('post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv')
+        test_list = (test_df['results'].values.tolist())
+        print(test_list)
 
-        # Normalize
-        df_ = df
-        df_ = df.loc[:, df.columns != 'test_name']
-        df_ = (df_-df_.min())/(df_.max()-df_.min())
-        extracted_col = df["test_name"]
-        df_.insert(0, 'test_name', extracted_col)
-        df_.set_index('test_name')
-        df_.to_csv('normalized_df.csv')
-        df = df_
-
-        features = list(df.columns)[1:]
-        test_column = list(df.columns)[0]
-
-        get_PCA(df, features, test_column)
-        #get_TSNE(df, features, test_column)
-        calculate_elbow(pd.read_csv("pca.csv"))
+        #test_list_std	=	StandardScaler().fit_transform(test_list)
+        v1 = (eig_vecs[:,0])
+        v2 = (eig_vecs[:,1])
+        vectors	=	np.column_stack((v1,	v2))
+        print(vectors)
+        pcas	=	project(vectors,test_list)
+        print(pcas)
     else:
-        print("Filename error")
+        print("Filename	error")
 
 
 if __name__ == "__main__":
