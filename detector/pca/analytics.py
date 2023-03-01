@@ -26,7 +26,7 @@ def get_explained_variance(X_std):
     plt.xlabel('Principal component index')
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.show()
+    #plt.show()
 
 
 def get_eigen(X_std):
@@ -74,7 +74,7 @@ def get_TSNE(df, features, test_column):
     for i, label in enumerate(y):
         plt.annotate(i, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
     ax.grid()
-    plt.show()
+    #plt.show()
 
 
 def get_PCA(df, features, test_column):
@@ -123,7 +123,7 @@ def get_PCA(df, features, test_column):
     ax.grid()
 
 
-    plt.show()
+    #plt.show()
 
     plt.matshow(pca.components_, cmap='viridis')
     plt.yticks([0, 1], ["First component", "Second component"])
@@ -131,9 +131,9 @@ def get_PCA(df, features, test_column):
     plt.xticks(range(len(features)), features, rotation=60, ha='left')
     plt.xlabel("Feature")
     plt.ylabel("Principal components")
-    plt.show()
+    #plt.show()
 
-    return finalDf,eig_vals, eig_vecs
+    return finalDf,eig_vals, eig_vecs, X_std
 
 def	project(featureVector,dataset):
     #	https://medium.com/free-code-camp/an-overview-of-principal-component-analysis-6340e3bc4073
@@ -158,14 +158,30 @@ def main():
         df	=	pd.read_csv(filename)
         features	= list(df.columns)[1:]
         test_column	= list(df.columns)[0]
-        pca_df,eig_vals,eig_vecs = get_PCA(df,features,test_column)
+        pca_df,eig_vals,eig_vecs,X_std_main = get_PCA(df,features,test_column)
         print(pca_df)
+        print("eig_vals")
         print(eig_vals)
+        print("eig_vecs")
         print(eig_vecs)
+        print("X_std_main")
+        print(X_std_main)
+
+        y = df.loc[:, [test_column]].values
+
         test_df	= pd.read_csv('post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv')
+        #test_df	= pd.read_csv('post_silicon/skx_executions_emon_basic/621.wrf_s_results.csv')
         t = np.asarray(test_df['results'])
-        t = t.reshape(-1,1)
-        t_std	=	StandardScaler().fit_transform(t)
+
+        #normalize with the rest of the workloads
+        df.loc[len(df)] = np.concatenate((["new"], t), axis=0)
+        print(df)
+        x = df.loc[:, features].values
+        df_std   =   StandardScaler().fit_transform(x)
+        print(df_std)
+
+        t_std = df_std[len(df_std)-1].reshape(-1,1)
+        print("t std")
         print(t_std)
         v1 = (eig_vecs[:,0])
         v2 = (eig_vecs[:,1])
@@ -174,7 +190,6 @@ def main():
         pcas = project(vectors,t_std)
         print(pcas)
 
-        y = df.loc[:, [test_column]].values
 
         fig = plt.figure(figsize=(8, 8))
         ax = fig.add_subplot(1, 1, 1)
