@@ -1,12 +1,14 @@
-import pandas as pd
-import numpy as np
+import os
+import sys
+
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
 #from distortion import *
 from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
-import sys
-from sklearn.manifold import TSNE
-import os
+
 
 def get_explained_variance(X_std):
 
@@ -26,7 +28,7 @@ def get_explained_variance(X_std):
     plt.xlabel('Principal component index')
     plt.legend(loc='best')
     plt.tight_layout()
-    #plt.show()
+    plt.show()
 
 
 def get_eigen(X_std):
@@ -34,10 +36,6 @@ def get_eigen(X_std):
     mean_vec = np.mean(X_std, axis=0)
     cov_mat = (X_std - mean_vec).T.dot((X_std - mean_vec)) / (X_std.shape[0]-1)
     eig_vals, eig_vecs = np.linalg.eig(cov_mat)
-
-    #print(f'Covariance matrix \n {cov_mat}')
-    #print(f'Eigenvectors \n {eig_vecs}')
-    #print(f'Eigenvalues \n {eig_vals}')
     return eig_vals, eig_vecs
 
 
@@ -68,13 +66,13 @@ def get_TSNE(df, features, test_column):
     ax.set_title('2 component TSNE', fontsize=20)
     ax.scatter(finalDf['TSNE 1'], finalDf['TSNE 2'], c='g', s=50)
 
-    #for i, label in enumerate(y):
+    # for i, label in enumerate(y):
     #    plt.annotate(label, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
 
     for i, label in enumerate(y):
         plt.annotate(i, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
     ax.grid()
-    #plt.show()
+    # plt.show()
 
 
 def get_PCA(df, features, test_column):
@@ -105,7 +103,7 @@ def get_PCA(df, features, test_column):
     ax.scatter(finalDf['principal component 1'],
                finalDf['principal component 2'], c='b', s=50)
 
-    #for i, label in enumerate(y):
+    # for i, label in enumerate(y):
     #    plt.annotate(
     #        label, (finalDf['principal component 1'][i], finalDf['principal component 2'][i]))
 
@@ -114,7 +112,7 @@ def get_PCA(df, features, test_column):
             i, (finalDf['principal component 1'][i], finalDf['principal component 2'][i]))
 
     #coeff = eig_vecs
-    #for i in range(len(features)):
+    # for i in range(len(features)):
     #    plt.arrow(0, 0, coeff[i, 0], coeff[i, 1], color='k',
     #              alpha=0.9, linestyle='-', linewidth=1.5, overhang=0.2)
     #    plt.text(coeff[i, 0] * 1.15, coeff[i, 1] * 1.15, features[i],
@@ -122,90 +120,86 @@ def get_PCA(df, features, test_column):
 
     ax.grid()
 
-
-    #plt.show()
-
     plt.matshow(pca.components_, cmap='viridis')
     plt.yticks([0, 1], ["First component", "Second component"])
     plt.colorbar()
     plt.xticks(range(len(features)), features, rotation=60, ha='left')
     plt.xlabel("Feature")
     plt.ylabel("Principal components")
-    #plt.show()
+    plt.show()
 
-    return finalDf,eig_vals, eig_vecs, X_std
+    return finalDf, eig_vals, eig_vecs, X_std
 
-def	project(featureVector,dataset):
-    #	https://medium.com/free-code-camp/an-overview-of-principal-component-analysis-6340e3bc4073
-    featureVectorTranspose	=	np.transpose(featureVector)
-    print(featureVectorTranspose)
-    #datasetTranspose	=	np.transpose(dataset)
-    #print(datasetTranspose)
-    newDatasetTranspose	=	np.matmul(featureVectorTranspose,dataset)
-    newDataset	=	np.transpose(newDatasetTranspose)
-    return	newDataset
+
+def dot_product(featureVector, dataset):
+    # https://medium.com/free-code-camp/an-overview-of-principal-component-analysis-6340e3bc4073
+    featureVectorTranspose = np.transpose(featureVector)
+    newDatasetTranspose = np.matmul(featureVectorTranspose, dataset)
+    newDataset = np.transpose(newDatasetTranspose)
+    return newDataset
+
+
+def project(df, test_df, label, eig_vals, eig_vecs, X_std_main, pca_df):
+
+    features = list(df.columns)[1:]
+    test_column = list(df.columns)[0]
+    y = df.loc[:, [test_column]].values
+
+    t = np.asarray(test_df['results'])
+
+    # normalize with the rest of the workloads
+    df.loc[len(df)] = np.concatenate(([f"{label}"], t), axis=0)
+    x = df.loc[:, features].values
+    df_std = StandardScaler().fit_transform(x)
+    t_std = df_std[len(df_std)-1].reshape(-1, 1)
+
+    # get first 2 eigenvectors
+    v1 = (eig_vecs[:, 0])
+    v2 = (eig_vecs[:, 1])
+    vectors = np.column_stack((v1, v2))
+
+    # do projection
+    pcas = dot_product(vectors, t_std)
+    print(pcas)
+
+    fig = plt.figure(figsize=(8, 8))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.set_xlabel('Principal Component 1', fontsize=15)
+    ax.set_ylabel('Principal Component 2', fontsize=15)
+    ax.set_title('2 component PCA (new element)', fontsize=20)
+    ax.scatter(pca_df['principal component 1'],
+               pca_df['principal component 2'], c='b', s=50)
+    for i, label in enumerate(y):
+        plt.annotate(
+            i, (pca_df['principal component 1'][i], pca_df['principal component 2'][i]))
+
+    plt.scatter(pcas[0, 0], pcas[0, 1], c='red')
+    plt.annotate("new", (pcas[0, 0], pcas[0, 1]))
+    ax.grid()
+    plt.show()
+
 
 def main():
 
-    filename	=	None
-    pca_df	=	None
-    if	len(sys.argv)	>	1:
-        filename	=	sys.argv[1]
+    filename = None
+    pca_df = None
+    if len(sys.argv) > 1:
+        filename = sys.argv[1]
     else:
-        filename	=	'post_silicon/summary.csv'
+        filename = 'post_silicon/summary.csv'
 
-    if	os.path.exists(filename):
-        df	=	pd.read_csv(filename)
-        features	= list(df.columns)[1:]
-        test_column	= list(df.columns)[0]
-        pca_df,eig_vals,eig_vecs,X_std_main = get_PCA(df,features,test_column)
-        print(pca_df)
-        print("eig_vals")
-        print(eig_vals)
-        print("eig_vecs")
-        print(eig_vecs)
-        print("X_std_main")
-        print(X_std_main)
+    if os.path.exists(filename):
+        df = pd.read_csv(filename)
+        features = list(df.columns)[1:]
+        test_column = list(df.columns)[0]
+        pca_df, eig_vals, eig_vecs, X_std_main = get_PCA(
+            df, features, test_column)
 
-        y = df.loc[:, [test_column]].values
+        test_df = pd.read_csv(
+            'post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv')
+        label = 'benchdnn'
+        project(df, test_df, label, eig_vals, eig_vecs, X_std_main, pca_df)
 
-        test_df	= pd.read_csv('post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv')
-        #test_df	= pd.read_csv('post_silicon/skx_executions_emon_basic/621.wrf_s_results.csv')
-        t = np.asarray(test_df['results'])
-
-        #normalize with the rest of the workloads
-        df.loc[len(df)] = np.concatenate((["new"], t), axis=0)
-        print(df)
-        x = df.loc[:, features].values
-        df_std   =   StandardScaler().fit_transform(x)
-        print(df_std)
-
-        t_std = df_std[len(df_std)-1].reshape(-1,1)
-        print("t std")
-        print(t_std)
-        v1 = (eig_vecs[:,0])
-        v2 = (eig_vecs[:,1])
-        vectors	=	np.column_stack((v1,v2))
-        print(vectors)
-        pcas = project(vectors,t_std)
-        print(pcas)
-
-
-        fig = plt.figure(figsize=(8, 8))
-        ax = fig.add_subplot(1, 1, 1)
-        ax.set_xlabel('Principal Component 1', fontsize=15)
-        ax.set_ylabel('Principal Component 2', fontsize=15)
-        ax.set_title('2 component PCA (new element)', fontsize=20)
-        ax.scatter(pca_df['principal component 1'],
-                   pca_df['principal component 2'], c='b', s=50)
-        for i, label in enumerate(y):
-            plt.annotate(
-                i, (pca_df['principal component 1'][i], pca_df['principal component 2'][i]))
-
-        plt.scatter(pcas[0,0],pcas[0,1] , c='red')
-
-        ax.grid()
-        plt.show()
     else:
         print("Filename	error")
 
