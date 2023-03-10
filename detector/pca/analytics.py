@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
-#from distortion import *
 from sklearn.preprocessing import StandardScaler
+import statistics
 
 
 def get_explained_variance(X_std):
@@ -72,7 +72,7 @@ def get_TSNE(df, features, test_column):
     for i, label in enumerate(y):
         plt.annotate(i, (finalDf['TSNE 1'][i], finalDf['TSNE 2'][i]))
     ax.grid()
-    # plt.show()
+    plt.show()
 
 
 def get_PCA(df, features, test_column):
@@ -82,6 +82,7 @@ def get_PCA(df, features, test_column):
     y = df.loc[:, [test_column]].values
     cov_mat = np.cov(x.T)
     eig_vals, eig_vecs = np.linalg.eig(cov_mat)
+
     # Standardizing the features
     X_std = StandardScaler().fit_transform(x)
 
@@ -139,19 +140,11 @@ def dot_product(featureVector, dataset):
     return newDataset
 
 
-def project(df, test_df, label, eig_vals, eig_vecs, X_std_main, pca_df):
+def project(df, test_array_new, label, eig_vals, eig_vecs, X_std_main, pca_df):
 
     features = list(df.columns)[1:]
     test_column = list(df.columns)[0]
     y = df.loc[:, [test_column]].values
-
-    t = np.asarray(test_df['results'])
-
-    # normalize with the rest of the workloads
-    df.loc[len(df)] = np.concatenate(([f"{label}"], t), axis=0)
-    x = df.loc[:, features].values
-    df_std = StandardScaler().fit_transform(x)
-    t_std = df_std[len(df_std)-1].reshape(-1, 1)
 
     # get first 2 eigenvectors
     v1 = (eig_vecs[:, 0])
@@ -159,7 +152,7 @@ def project(df, test_df, label, eig_vals, eig_vecs, X_std_main, pca_df):
     vectors = np.column_stack((v1, v2))
 
     # do projection
-    pcas = dot_product(vectors, t_std)
+    pcas = dot_product(vectors, test_array_new)
     print(pcas)
 
     fig = plt.figure(figsize=(8, 8))
@@ -173,11 +166,12 @@ def project(df, test_df, label, eig_vals, eig_vecs, X_std_main, pca_df):
         plt.annotate(
             i, (pca_df['principal component 1'][i], pca_df['principal component 2'][i]))
 
-    plt.scatter(pcas[0, 0], pcas[0, 1], c='red')
-    plt.annotate("new", (pcas[0, 0], pcas[0, 1]))
+    plt.scatter(pcas[0], pcas[1], c='red')
+    plt.annotate("new", (pcas[0], pcas[1]))
     ax.grid()
     plt.show()
 
+    return pcas
 
 def main():
 
@@ -188,20 +182,40 @@ def main():
     else:
         filename = 'post_silicon/summary.csv'
 
+    if len(sys.argv) > 2:
+        filename_new_test = sys.argv[2]
+        label = sys.argv[3]
+    else:
+        filename_new_test = 'post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv'
+        label = "benchdnn"
+
     if os.path.exists(filename):
         df = pd.read_csv(filename)
         features = list(df.columns)[1:]
         test_column = list(df.columns)[0]
+        x = df.loc[:, features].values
+        column_0 = (x[:,0])
+
+        mean_v = (StandardScaler().fit(x).mean_)
+        scale_v = (StandardScaler().fit(x).scale_)
+
+        test_df = pd.read_csv(filename_new_test)
+        test_array = np.asarray(test_df['results'])
+
+        test_array_new = []
+
+        for count, element in enumerate(test_array):
+            test_array_new.append((element - mean_v[count]) / scale_v[count])
+
         pca_df, eig_vals, eig_vecs, X_std_main = get_PCA(
             df, features, test_column)
 
-        test_df = pd.read_csv(
-            'post_silicon/skx_benchdnn/benchdnn_gated_results_basic.csv')
-        label = 'benchdnn'
-        project(df, test_df, label, eig_vals, eig_vecs, X_std_main, pca_df)
+        test_df = pd.read_csv(filename_new_test)
+        pcas = project(df, test_array_new, label, eig_vals, eig_vecs, X_std_main, pca_df)
 
     else:
-        print("Filename	error")
+        print("Error")
+        print(f"./{sys.argv[0]} <reference set> <new test data> <label>")
 
 
 if __name__ == "__main__":
