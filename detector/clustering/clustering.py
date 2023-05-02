@@ -4,75 +4,55 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-FILE = "pca.csv"
-clusters = 2
 
-def kmean_cluster(FILE,clusters):
+def kmean_cluster(df,clusters):
 
-    df = pd.read_csv(FILE)
-    test_column = list(df.columns)[3]
-
-    if "pca" in FILE:
-        df = pd.read_csv(FILE, usecols = ['principal component 1','principal component 2'])
-    elif "tsne" in FILE:
-        df = pd.read_csv(FILE, usecols = ['TSNE 1','TSNE 2'])
-    else:
-        sys.exit(-1)
-
-    workload_name_df = pd.read_csv(FILE, usecols =[test_column])
-    workload_name = workload_name_df[test_column].values
-
-    kmeans = KMeans(init="k-means++", n_clusters=clusters).fit(df)
-    centroids = kmeans.cluster_centers_
+    kmeans_df = df[['principal component 1', 'principal component 2']].copy()
+    kmeans = KMeans(init="k-means++", n_clusters=clusters).fit(kmeans_df)
     labels = kmeans.labels_
-    X_dist = (kmeans.transform(df))
+    X_dist = (kmeans.transform(kmeans_df))
 
     distance = []
 
     for inner_list in X_dist:
         distance.append((min(inner_list)))
 
-    df['PRED'] = labels
-    df[test_column] = workload_name
-    df['distance'] = distance
+    kmeans_df['PRED'] = labels
+    kmeans_df['test_name'] = df['test_name'].values
+    kmeans_df['distance'] = distance
 
-    y = df.loc[:,['test_name']].values
-
-    grouped_df = df.groupby("PRED")
-    grouped_lists = grouped_df[test_column].apply(list)
+    grouped_df = kmeans_df.groupby("PRED")
+    grouped_lists = grouped_df["test_name"].apply(list)
     grouped_lists = grouped_lists.reset_index()
-    df_result = grouped_lists.explode(test_column)
-    grouped_lists.explode(test_column).to_csv("clusters.csv")
-
-    plt.scatter(centroids[:, 0], centroids[:, 1], c='red', s=50)
-    if "pca" in FILE:
-        plt.scatter(df['principal component 1'], df['principal component 2'], c= kmeans.labels_.astype(float), s=50, alpha=0.5)
-        for i, label in enumerate(y):
-            plt.annotate(i, (df['principal component 1'][i], df['principal component 2'][i]))
-    elif "tsne" in FILE:
-        plt.scatter(df['TSNE 1'], df['TSNE 2'], c= kmeans.labels_.astype(float), s=50, alpha=0.5)
-        for i, label in enumerate(y):
-            plt.annotate(i, (df['TSNE 1'][i], df['TSNE 2'][i]))
-    else:
-        sys.exit(-1)
-
-    plt.xlabel("component 1")
-    plt.ylabel("component 2")
-    plt.grid()
-    plt.show()
+    df_result = grouped_lists.explode('test_name')
+    grouped_lists.explode('test_name').to_csv("clusters.csv")
 
     return df_result,kmeans
 
+def plot_kmeans(df, kmeans):
+
+    centroids = kmeans.cluster_centers_
+    plt.scatter(centroids[:, 0], centroids[:, 1], c='red', s=50)
+    plt.scatter(df['principal component 1'], df['principal component 2'], c= kmeans.labels_.astype(float), s=50, alpha=0.5)
+    for i, label in enumerate(df['test_name']):
+        plt.annotate(i, (df['principal component 1'][i], df['principal component 2'][i]))
+    plt.xlabel("Component 1")
+    plt.ylabel("Component 2")
+    plt.grid()
+    plt.show()
+
+
 def main():
 
-    global FILE
-    global clusters
+    FILE = "pca.csv"
+    clusters = 2
 
     if len(sys.argv) > 1:
         FILE = sys.argv[1]
         clusters = int(sys.argv[2])
 
-    df_result = kmean_cluster(FILE,clusters)
+    df = pd.read_csv(FILE)
+    df_result = kmean_cluster(df,clusters)
     print(df_result)
 
 if __name__ == "__main__":

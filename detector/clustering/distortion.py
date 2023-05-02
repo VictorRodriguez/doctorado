@@ -31,7 +31,10 @@ def calculate_elbow(df):
     x = range(1, len(distortions)+1)
     kn = KneeLocator(x, distortions, curve='convex', direction='decreasing')
 
-    # Plot the elbow
+    return kn.knee,distortions,inertias
+
+def plot_elbow(K,distortions,inertias):
+
     plt.plot(K, distortions, 'bx-')
     plt.xlabel('k')
     plt.ylabel('Distortion')
@@ -44,12 +47,11 @@ def calculate_elbow(df):
     plt.title('The Elbow Method using Inertia')
     plt.show()
 
-    print(kn.knee)
-    return kn.knee
 
 def main():
     df = pd.read_csv("pca.csv")
-    calculate_elbow(df)
+    knee,distortions,inertias = calculate_elbow(df)
+    print(knee)
 
 if __name__ == "__main__":
     main()

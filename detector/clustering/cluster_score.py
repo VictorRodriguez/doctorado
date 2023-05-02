@@ -33,7 +33,7 @@ def counter_cosine_similarity(c1, c2):
     magB = math.sqrt(sum(c2.get(k, 0)**2 for k in terms))
     return dotprod / (magA * magB)
 
-def check_similarity(cosine_similarity_fp,cosine_similarity_int,df):
+def check_similarity(cosine_similarity_fp,cosine_similarity_int,df,cluster_label):
 
     if (cosine_similarity_fp > cosine_similarity_int):
         print("cosine_similarity_fp > cosine_similarity_int")
@@ -43,6 +43,11 @@ def check_similarity(cosine_similarity_fp,cosine_similarity_int,df):
         print("cosine_similarity_int > cosine_similarity_fp")
         print("Assigining 1 label to pred cluster")
         df = df.assign(PRED='1')
+
+    cosine_similarity = [cosine_similarity_fp,cosine_similarity_int]
+    index = ['cosine_similarity vs fp tests ', 'cosine_similarity vs int tests']
+    df_ = pd.DataFrame({'cosine similarity ': cosine_similarity}, index=index)
+    ax = df_.plot.bar(rot=0,title = f"cosine_similarity {cluster_label}")
 
     return df
 
@@ -58,7 +63,7 @@ def normalize(A, B, fp_tests, int_tests):
     counterB = Counter(A['test_name'].tolist())
     cosine_similarity_int = counter_cosine_similarity(counterA, counterB)
     print(f"cosine_similarity vs int_tests {cosine_similarity_int}")
-    A = check_similarity(cosine_similarity_fp,cosine_similarity_int, A)
+    A = check_similarity(cosine_similarity_fp,cosine_similarity_int, A, "cluster 1")
 
     print("\nB = PRED -> 1")
     counterA = Counter(fp_tests['test_name'].tolist())
@@ -71,7 +76,7 @@ def normalize(A, B, fp_tests, int_tests):
     cosine_similarity_int = counter_cosine_similarity(counterA, counterB)
     print(f"cosine_similarity vs int_tests {cosine_similarity_int}")
 
-    B = check_similarity(cosine_similarity_fp,cosine_similarity_int,B)
+    B = check_similarity(cosine_similarity_fp,cosine_similarity_int,B, "cluster 2")
 
     C = pd.concat([A, B])
 
