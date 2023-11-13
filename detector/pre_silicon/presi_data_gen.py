@@ -11,8 +11,6 @@ import urllib
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-results_file = 'presilicon_spec_cpu2017.csv'
-
 def read_histogram(CSV_FILE):
     df = pd.read_csv(CSV_FILE)
     df.columns = df.columns.str.lower()
@@ -63,6 +61,10 @@ def calcualte_values(df_copy):
     file_path_a = os.path.join(file_path,'instructions_kind/arithmetic.csv')
     file_path_b = os.path.join(file_path,'instructions_kind/branch.csv')
     file_path_s = os.path.join(file_path,'instructions_kind/store.csv')
+    file_path_l = os.path.join(file_path,'instructions_kind/load.csv')
+    file_path_v = os.path.join(file_path,'instructions_kind/vector.csv')
+    file_path_io = os.path.join(file_path,'instructions_kind/IO.csv')
+
     if os.path.isfile(file_path_a):
         df_arithmetic = pd.read_csv(file_path_a)
     else:
@@ -75,6 +77,53 @@ def calcualte_values(df_copy):
         df_store = pd.read_csv(file_path_s)
     else:
         exit(0)
+
+    if os.path.isfile(file_path_l):
+        df_load = pd.read_csv(file_path_l)
+    else:
+        exit(0)
+
+    if os.path.isfile(file_path_v):
+        df_vector = pd.read_csv(file_path_v)
+    else:
+        exit(0)
+
+    if os.path.isfile(file_path_io):
+        df_io = pd.read_csv(file_path_io)
+    else:
+        exit(0)
+
+    df_copy["pro"] = df_copy["count"]/df_copy["count"].sum()
+
+    df_a = df_copy[df_copy.mnemonic.isin(df_arithmetic.mnemonic)]
+    df_b = df_copy[df_copy.mnemonic.isin(df_branch.mnemonic)]
+    df_s = df_copy[df_copy.mnemonic.isin(df_store.mnemonic)]
+    df_l = df_copy[df_copy.mnemonic.isin(df_load.mnemonic)]
+    df_v = df_copy[df_copy.mnemonic.isin(df_vector.mnemonic)]
+    df_io = df_copy[df_copy.mnemonic.isin(df_io.mnemonic)]
+
+    df_o = pd.concat([df_copy, df_a, df_b, df_s, df_l, df_v, df_io]).drop_duplicates(keep=False)
+
+    data_prob = [['arithmetic', df_a['pro'].sum()],
+                 ['branch', df_b['pro'].sum()],
+                 ['store_counter', df_s['pro'].sum()],
+                 ['load_counter', df_l['pro'].sum()],
+                 ['vector_counter', df_v['pro'].sum()],
+                 ['io_counter', df_io['pro'].sum()],
+                 ['other_counter', df_o['pro'].sum()]]
+
+    df_prob = pd.DataFrame(data_prob, columns=['InstrKind', 'probability'])
+    #print(df_prob['probability'].sum())
+    return (df_prob)
+
+def calcualte_values_iform(df_copy):
+
+    df_copy["count"] = pd.to_numeric(df_copy["count"])
+    file_path = os.path.abspath(__file__)
+    file_name = os.path.basename(file_path)
+    file_path = file_path.replace(file_name,"")
+
+    df_iform = read_json('presibuilds.idata_iform.json')
 
     df_copy["pro"] = df_copy["count"]/df_copy["count"].sum()
 
@@ -92,13 +141,12 @@ def calcualte_values(df_copy):
 
     return (df_prob)
 
-
 def get_pareto(df):
 
     df["cumpercentage"] = df["count"].cumsum()/df["count"].sum()*100
     df2 = pd.DataFrame(columns=["mnemonic", "count", "cumpercentage"])
     for ind in df.index:
-        if (df['cumpercentage'][ind]) <= 80:
+        if (df['cumpercentage'][ind]) <= 90:
             df2 = df2.append(df.iloc[ind])
     display(df2)
 
@@ -140,16 +188,14 @@ def main():
     args = parser.parse_args()
 
     if args.files:
-        my_labels = ['arithmetic', 'branch', 'store', 'other']
+        my_labels = ['arithmetic', 'branch', 'store', 'load', 'vector' , 'io', 'other']
         df_global = pd.DataFrame(columns=my_labels)
         for file_name in args.files:
-            test_name = file_name
-            df = read_histogram(file_name)
+            test_name = file_name.strip("csv").strip(".")
+            df = read_histogram(os.path.join("tests/pre_silicon_runs_ml_db",file_name))
             df_sumary = calcualte_values(df)
             df_global.loc[test_name] = df_sumary['probability'].values.tolist()
         plot_stacked_bar(df_global)
-        df_global.to_csv(results_file)
-        exit(0)
 
     elif args.histogram:
         df = read_histogram(args.histogram)
