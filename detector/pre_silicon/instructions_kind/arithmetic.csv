@@ -1,0 +1,17 @@
+mnemonic
+add
+sub
+and
+or
+shl
+shr
+sar
+imul
+xadd
+movdiri
+mul
+div
+idiv
+inc
+dec
+neg

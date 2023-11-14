@@ -1,0 +1,9 @@
+mnemonic
+lea
+lds
+les
+lfs
+lgs
+lodsb
+lodsw
+lodsd

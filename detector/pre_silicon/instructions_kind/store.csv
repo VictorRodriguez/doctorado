@@ -1,0 +1,10 @@
+mnemonic
+mov
+pop
+push
+movz
+xchg
+movsx
+stosb
+stosw
+stosd
