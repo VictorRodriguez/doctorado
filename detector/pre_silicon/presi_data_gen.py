@@ -139,6 +139,92 @@ def calculate_values(df_copy):
     df_count = pd.DataFrame(data, columns=["InstrKind", "count"])
     return df_prob,df_count
 
+def calculate_values_int_fp(df_copy):
+    df_copy["count"] = pd.to_numeric(df_copy["count"])
+    file_path = os.path.abspath(__file__)
+    file_name = os.path.basename(file_path)
+    file_path = file_path.replace(file_name, "")
+
+    file_path_i = os.path.join(file_path, "instructions_kind/int.csv")
+    file_path_fp = os.path.join(file_path, "instructions_kind/fp.csv")
+    file_path_b = os.path.join(file_path, "instructions_kind/branch.csv")
+    file_path_s = os.path.join(file_path, "instructions_kind/store.csv")
+    file_path_l = os.path.join(file_path, "instructions_kind/load.csv")
+    #file_path_v = os.path.join(file_path, "instructions_kind/vector.csv")
+    file_path_io = os.path.join(file_path, "instructions_kind/IO.csv")
+
+    if os.path.isfile(file_path_i):
+        df_int = pd.read_csv(file_path_i)
+    else:
+        exit(0)
+    if os.path.isfile(file_path_fp):
+        df_fp = pd.read_csv(file_path_fp)
+    else:
+        exit(0)
+    if os.path.isfile(file_path_b):
+        df_branch = pd.read_csv(file_path_b)
+    else:
+        exit(0)
+    if os.path.isfile(file_path_s):
+        df_store = pd.read_csv(file_path_s)
+    else:
+        exit(0)
+
+    if os.path.isfile(file_path_l):
+        df_load = pd.read_csv(file_path_l)
+    else:
+        exit(0)
+
+    #if os.path.isfile(file_path_v):
+    #    df_vector = pd.read_csv(file_path_v)
+    #else:
+    #    exit(0)
+
+    if os.path.isfile(file_path_io):
+        df_io = pd.read_csv(file_path_io)
+    else:
+        exit(0)
+
+    df_copy["pro"] = df_copy["count"] / df_copy["count"].sum()
+
+    df_i = df_copy[df_copy.mnemonic.isin(df_int.mnemonic)]
+    df_f = df_copy[df_copy.mnemonic.isin(df_fp.mnemonic)]
+    df_b = df_copy[df_copy.mnemonic.isin(df_branch.mnemonic)]
+    df_s = df_copy[df_copy.mnemonic.isin(df_store.mnemonic)]
+    df_l = df_copy[df_copy.mnemonic.isin(df_load.mnemonic)]
+    #df_v = df_copy[df_copy.mnemonic.isin(df_vector.mnemonic)]
+    df_io = df_copy[df_copy.mnemonic.isin(df_io.mnemonic)]
+
+    df_o = pd.concat([df_copy, df_i, df_f, df_b, df_s, df_l, df_io]).drop_duplicates(
+        keep=False
+    )
+
+    data_prob = [
+        ["int", df_i["pro"].sum()],
+        ["fp", df_f["pro"].sum()],
+        ["branch", df_b["pro"].sum()],
+        ["store_counter", df_s["pro"].sum()],
+        ["load_counter", df_l["pro"].sum()],
+        #["vector_counter", df_v["pro"].sum()],
+        ["io_counter", df_io["pro"].sum()],
+        ["other_counter", df_o["pro"].sum()],
+    ]
+
+    data = [
+        ["int", df_i["count"].sum()],
+        ["fp", df_f["count"].sum()],
+        ["branch", df_b["count"].sum()],
+        ["store_counter", df_s["count"].sum()],
+        ["load_counter", df_l["count"].sum()],
+        #["vector_counter", df_v["count"].sum()],
+        ["io_counter", df_io["count"].sum()],
+        ["other_counter", df_o["count"].sum()],
+    ]
+
+    df_prob = pd.DataFrame(data_prob, columns=["InstrKind", "probability"])
+    df_count = pd.DataFrame(data, columns=["InstrKind", "count"])
+    return df_prob,df_count
+
 
 def calculate_values_iform(df_copy):
     df_copy["count"] = pd.to_numeric(df_copy["count"])
