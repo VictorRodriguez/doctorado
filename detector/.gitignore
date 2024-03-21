@@ -1,0 +1,23 @@
+# Ignore Docker build context
+.dockerignore
+
+# Ignore Docker image files
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tgz
+*.gz
+*.bz2
+*.xz
+
+# Ignore Docker image IDs
+*.docker
+
+# Ignore local development files
+docker-compose.override.yml
+.env
+
+# Ignore system files from Docker
+.DS_Store
+Thumbs.db
