@@ -67,6 +67,18 @@ def get_PCA(df,features):
     pca_df.to_csv("pca.csv")
     return pca_df
 
+def get_PCA_3D(df,features):
+    x = get_features(df,features)
+    # Sttest_nameandardizing the features
+    X_std = StandardScaler().fit_transform(x)
+    pca = PCA(n_components=3)
+    principalComponents = pca.fit_transform(X_std)
+    pca_df = pd.DataFrame(data=principalComponents,
+                    columns=['principal component 1', 'principal component 2', 'principal component 3'])
+    pca_df = pd.concat([pca_df, df[['test_name']]], axis=1)
+    pca_df.to_csv("pca.csv")
+    return pca_df
+
 def plot_PCA(df):
     fig = plt.figure(figsize=(8, 8))
     ax = fig.add_subplot(1, 1, 1)
@@ -81,6 +93,18 @@ def plot_PCA(df):
             i, (df['principal component 1'][i], df['principal component 2'][i]))
     ax.grid()
 
+def plot_PCA_labeled(df):
+    fig = plt.figure(figsize=(8, 8))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.set_xlabel('Principal Component 1', fontsize=15)
+    ax.set_ylabel('Principal Component 2', fontsize=15)
+    ax.set_title('2 component PCA', fontsize=20)
+    ax.scatter(df['principal component 1'],
+               df['principal component 2'], c='b', s=50)
+    for i, label in enumerate(df['test_name']):
+        plt.annotate(
+            df['test_name'][i], (df['principal component 1'][i], df['principal component 2'][i]))
+    ax.grid()
 def plot_pca_vectors(X_std,features):
     pca = PCA(n_components=2)
     principalComponents = pca.fit_transform(X_std)

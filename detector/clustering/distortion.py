@@ -9,6 +9,43 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from kneed import KneeLocator
 
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.metrics import pairwise_distances_argmin_min
+import pandas as pd  # Import pandas for DataFrame operations
+
+def find_optimal_clusters(data, max_clusters=10):
+    distortions = []  # To store distortion values
+    inertias = []     # To store inertia values
+
+    for k in range(1, max_clusters + 1):
+        kmeans = KMeans(n_clusters=k, random_state=0)
+        kmeans.fit(data)
+        # Calculate distortion (average of squared distances of samples to their closest cluster center)
+        distortion = sum(np.min(pairwise_distances_argmin_min(data, kmeans.cluster_centers_), axis=1)) / data.shape[0]
+        distortions.append(distortion)
+        # Calculate inertia (sum of squared distances of samples to their closest cluster center)
+        inertias.append(kmeans.inertia_)
+
+    # Find the "elbow" point in the distortion plot
+    optimal_k = 1  # Default to 1 cluster if no clear elbow is found
+    for k in range(1, len(distortions) - 1):
+        if distortions[k] < distortions[k - 1] and distortions[k] < distortions[k + 1]:
+            optimal_k = k + 1
+            break
+
+    # Plot distortion values
+    plt.figure(figsize=(6, 4))
+    plt.plot(range(1, max_clusters + 1), distortions, marker='o')
+    plt.title('Distortion vs. Number of Clusters')
+    plt.xlabel('Number of Clusters')
+    plt.ylabel('Distortion')
+    plt.grid(True)
+    plt.show()
+
+    return optimal_k,distortions,inertias
+
 def calculate_elbow(df):
 
     x1 = df["principal component 1"].values
@@ -30,7 +67,7 @@ def calculate_elbow(df):
 
     x = range(1, len(distortions)+1)
     kn = KneeLocator(x, distortions, curve='convex', direction='decreasing')
-
+    kn.plot_knee()
     return kn.knee,distortions,inertias
 
 def plot_elbow(K,distortions,inertias):

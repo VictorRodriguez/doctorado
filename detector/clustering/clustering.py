@@ -27,7 +27,9 @@ def kmean_cluster(df,clusters):
     df_result = grouped_lists.explode('test_name')
     grouped_lists.explode('test_name').to_csv("clusters.csv")
 
-    return df_result,kmeans
+    # Calculate SSE
+    SSE = kmeans.inertia_
+    return df_result,kmeans,SSE
 
 def plot_kmeans(df, kmeans):
 
@@ -41,6 +43,38 @@ def plot_kmeans(df, kmeans):
     plt.grid()
     plt.show()
 
+def plot_kmeans_improved(df, kmeans):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+    # Plot scatter plot on the first axis
+    centroids = kmeans.cluster_centers_
+    ax1.scatter(centroids[:, 0], centroids[:, 1], c='red', s=50)
+    ax1.scatter(df['principal component 1'], df['principal component 2'], c=kmeans.labels_.astype(float), s=50, alpha=0.5)
+    for i, label in enumerate(df['test_name']):
+        ax1.annotate(i, (df['principal component 1'][i], df['principal component 2'][i]))
+    ax1.set_xlabel("Component 1")
+    ax1.set_ylabel("Component 2")
+    ax1.grid()
+
+    # Plot table on the second axis
+    table_data = df[['test_name']].reset_index()
+    ax2.axis('off')
+    ax2.table(cellText=table_data.values, colLabels=table_data.columns, loc='center')
+
+    plt.show()
+
+
+def plot_kmeans_labeled(df, kmeans):
+
+    centroids = kmeans.cluster_centers_
+    plt.scatter(centroids[:, 0], centroids[:, 1], c='red', s=50)
+    plt.scatter(df['principal component 1'], df['principal component 2'], c= kmeans.labels_.astype(float), s=50, alpha=0.5)
+    for i, label in enumerate(df['test_name']):
+        plt.annotate(df.test_name[i], (df['principal component 1'][i], df['principal component 2'][i]))
+    plt.xlabel("Component 1")
+    plt.ylabel("Component 2")
+    plt.grid()
+    plt.show()
 
 def main():
 
