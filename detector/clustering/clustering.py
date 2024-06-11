@@ -3,7 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
-
+import matplotlib.pyplot as plt
+from adjustText import adjust_text
 
 def kmean_cluster(df,clusters):
 
@@ -42,6 +43,30 @@ def plot_kmeans(df, kmeans):
     plt.ylabel("Component 2")
     plt.grid()
     plt.show()
+
+def plot_kmeans_clean(df, kmeans):
+    """
+    Plot clusters with centroids.
+
+    Parameters:
+    df (DataFrame): DataFrame containing data points.
+    kmeans (KMeans): Fitted KMeans model.
+    """
+    centroids = kmeans.cluster_centers_
+    plt.scatter(*centroids.T, c='red', s=100, label='Centroids')
+    scatter_points = plt.scatter(df['principal component 1'], df['principal component 2'], c=kmeans.labels_.astype(float), s=50, alpha=0.5)
+    texts = []
+    for i, label in enumerate(df['test_name']):
+        x = df['principal component 1'][i]
+        y = df['principal component 2'][i]
+        texts.append(plt.text(x, y, str(i)))
+    adjust_text(texts, arrowprops=dict(arrowstyle="-", color='k', lw=0.5))
+    plt.xlabel("Component 1")
+    plt.ylabel("Component 2")
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
 
 def plot_kmeans_improved(df, kmeans):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
